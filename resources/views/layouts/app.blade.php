@@ -47,7 +47,7 @@
             </div>
         </header>
 
-        <main class="container mx-auto flex" style="max-width: 1000px;">
+        <main class="container mx-auto max-w-custom flex>
             <div style="max-width: 280px; margin-right: 20px">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
                 amet architecto beatae cumque dicta illum, ipsam molestias odit,

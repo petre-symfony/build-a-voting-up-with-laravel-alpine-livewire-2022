@@ -20,6 +20,9 @@ module.exports = {
                 gray: colors.neutral,
                 'gray-background': '#f7f8fc'
             },
+            maxWidth: {
+                custom: '62.5rem'
+            },
             fontFamily: {
                 sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
             },
