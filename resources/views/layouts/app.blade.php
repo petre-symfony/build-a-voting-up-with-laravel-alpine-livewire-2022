@@ -49,7 +49,7 @@
 
         <main class="container mx-auto max-w-custom flex">
             <div class="w-70 mr-5">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                An idea form goes here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
                 amet architecto beatae cumque dicta illum, ipsam molestias odit,
                 quae, quibusdam repudiandae tenetur velit! Cumque distinctio
                 esse fugiat illum perferendis quaerat quidem, quis repellat
@@ -63,30 +63,11 @@
                 quia ratione vel voluptas voluptatem? Itaque, voluptatibus.
             </div>
             <div class="w-175">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                dolorum ex exercitationem inventore ipsa laborum maiores nobis
-                numquam, repellendus sed similique tempore veniam vero? Aliquam
-                consectetur dolorum ex, exercitationem explicabo, hic incidunt
-                maxime molestias mollitia nam neque nisi obcaecati rem totam
-                voluptatem! Dolore excepturi iste itaque odio quae totam veritatis,
-                vitae voluptatum! Atque exercitationem perspiciatis provident quas
-                repellat repudiandae soluta tenetur voluptas. Et labore, maiores.
-                Aspernatur culpa dolore eos, explicabo iste mollitia praesentium
-                provident repellat, rerum sequi sit tenetur ullam unde. Assumenda
-                deleniti earum, neque odio reiciendis suscipit. Adipisci placeat,
-                sapiente. A aliquam amet, architecto at beatae cum dolorem doloremque
-                est ex expedita explicabo fugit incidunt ipsum itaque laudantium minus,
-                nisi nobis praesentium, qui quidem reiciendis repellendus reprehenderit
-                repudiandae sequi tempore temporibus ut! Accusantium ad assumenda autem
-                consectetur consequatur debitis deleniti dignissimos dolores doloribus
-                eaque eius eligendi, et id modi non officiis provident qui recusandae
-                repellendus sapiente sed temporibus unde voluptatum. Adipisci animi
-                architecto distinctio ducimus earum eligendi enim fuga fugiat ipsum
-                itaque iure libero, modi molestiae nam nisi praesentium quas reprehenderit
-                sequi ullam veniam? Asperiores maxime, optio placeat quod repellat
-                repellendus rerum saepe soluta voluptas voluptate. Asperiores aut,
-                autem eum excepturi illum itaque modi numquam recusandae sequi
-                voluptatibus. A.
+                <nav class="flex items-center justify-between text-xs">
+                    <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
+                        <li><a href="" class="">All Ideas (87)</a></li>
+                    </ul>
+                </nav>
             </div>
         </main>
     </body>
