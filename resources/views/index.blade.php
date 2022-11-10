@@ -76,6 +76,9 @@
                             >
                                 Open
                             </div>
+                            <button class="bg-gray-100 hover:bg-gray-200 transition duration-150 ease-in rounded-full h-7">
+                                Text
+                            </button>
                         </div>
                     </div>
                 </div>
