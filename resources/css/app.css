@@ -37,5 +37,16 @@
     content: "";
     width: 3px;
     height: calc(100% - 60px);
-    background: #f7f8fc;
+    background: theme('colors.gray-background');
+}
+
+.is-admin::before {
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    border: 7px solid white;
+    box-shadow: 4px 4px 15px 0 rgba(36, 37,38, .08);
+    left: -58px;
+    background: theme('colors.purple');
+    opacity: 1;
 }
