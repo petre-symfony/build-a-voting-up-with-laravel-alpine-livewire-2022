@@ -59,6 +59,25 @@
                         Aliquid asperiores dignissimos dolor nostrum quibusdam reiciendis
                         reprehenderit voluptate. Veniam?
                     </div>
+                    <div class="flex items-center justify-between mt-6">
+                        <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
+                            <div>10 hours ago</div>
+                            <div>&bull;</div>
+                            <div>Category 1</div>
+                            <div>&bull;</div>
+                            <div>3 Comments</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div
+                                class="bg-gray-200 text-xxs font-bold uppercase
+                                    leading-none rounded-full text-center w-28
+                                    h-7 py-2 px-4
+                                "
+                            >
+                                Open
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div><!-- end idea-container -->
