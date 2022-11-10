@@ -34,6 +34,9 @@
                     <div class="font-semibold text-2xl">12</div>
                     <div class="text-gray-500">Votes</div>
                 </div>
+                <div class="mt-8">
+                    <button class="w-20 bg-gray-200 font-bold text-xs uppercase rounded-xl px-4 py-3">Vote</button>
+                </div>
             </div>
         </div><!-- end idea-container -->
     </div><!-- end ideas container -->
