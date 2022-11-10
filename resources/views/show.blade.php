@@ -54,4 +54,32 @@
             </div>
         </div>
     </div><!-- end idea-container -->
+    <div class="buttons-container flex items-center justify-between mt-6">
+        <div class="flex items-center space-x-4 ml-6">
+            <button
+                type="button"
+                class="flex items-center justify-center h-11 w-32
+                    text-xs text-white bg-blue font-semibold rounded-xl
+                    border border-blue hover:bg-blue-hover
+                    transition duration-150 ease-in px-6 py-3
+                "
+            >
+                <span class="ml-1">Reply</span>
+            </button>
+
+            <button
+                type="button"
+                class="flex items-center justify-center h-11 w-36
+                    text-xs bg-gray-200 font-semibold rounded-xl
+                    border border-gray-200 hover:border-gray-400
+                    transition duration-150 ease-in px-6 py-3
+                "
+            >
+                <span>Set Status</span>
+                <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+        </div>
+    </div><!-- end buttons-container -->
 </x-app-layout>
