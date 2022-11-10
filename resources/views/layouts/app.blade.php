@@ -49,18 +49,20 @@
 
         <main class="container mx-auto max-w-custom flex">
             <div class="w-70 mr-5">
-                An idea form goes here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                amet architecto beatae cumque dicta illum, ipsam molestias odit,
-                quae, quibusdam repudiandae tenetur velit! Cumque distinctio
-                esse fugiat illum perferendis quaerat quidem, quis repellat
-                repellendus similique. Ab animi aut blanditiis dolor eveniet
-                explicabo, fugit harum iure mollitia necessitatibus nihil nostrum,
-                quam quo quod repudiandae sint tenetur! Alias dolor et laudantium
-                perspiciatis possimus, quaerat quas quasi vitae. Nemo possimus
-                provident quasi rem totam. A amet aperiam, corporis ducimus eius
-                minus nulla obcaecati quia repellendus soluta tempore, voluptatibus
-                voluptatum! Assumenda cumque ex incidunt iste magni perspiciatis
-                quia ratione vel voluptas voluptatem? Itaque, voluptatibus.
+                <div class="border-2 border-blue rounded-xl mt-16 bg-white">
+                    <div class="text-center px-6 py-2 pt-6">
+                        <h3 class="font-semibold text-base">Add an idea</h3>
+                        <p class="text-xs mt-4">Let us know what you would like and we'll take a look over!</p>
+                    </div>
+                    <form action="" method="POST" class="space-y-4 px-4 py-6">
+                        <div>
+                            <input type="text"
+                                   class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
+                                   placeholder="Your Idea"
+                            >
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="w-175">
                 <nav class="flex items-center justify-between text-xs">
