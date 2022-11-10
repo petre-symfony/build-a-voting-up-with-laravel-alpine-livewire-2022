@@ -65,7 +65,8 @@
             <div class="w-175">
                 <nav class="flex items-center justify-between text-xs">
                     <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
-                        <li><a href="" class="">All Ideas (87)</a></li>
+                        <li><a href="" class="border-b-4 pb-3 border-blue">All Ideas (87)</a></li>
+                        <li><a href="">All Ideas (87)</a></li>
                     </ul>
                 </nav>
             </div>
