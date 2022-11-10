@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* vertical line to the left of the comments */
 .comments-container::before {
     position: absolute;
     display: block;
@@ -13,4 +14,17 @@
     /* background: #78909c;*/
     background: black;
     opacity: .07;
+}
+
+.comment-container::before {
+    position: relative;
+    display: block;
+    top: 57px;
+    content: "";
+    width: 23px;
+    height: 3px;
+    /* background: #78909c;*/
+    background: black;
+    left: -40px;
+    opacity: .07
 }
