@@ -65,7 +65,7 @@
                             <div>&bull;</div>
                             <div>Category 1</div>
                             <div>&bull;</div>
-                            <div>3 Comments</div>
+                            <div class="text-gray-900">3 Comments</div>
                         </div>
                         <div class="flex items-center space-x-2">
                             <div
