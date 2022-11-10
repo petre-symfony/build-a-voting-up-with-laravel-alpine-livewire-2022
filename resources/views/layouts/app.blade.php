@@ -46,5 +46,48 @@
                 </a>
             </div>
         </header>
+
+        <main class="container mx-auto flex" style="max-width: 1000px;">
+            <div style="max-width: 280px; margin-right: 20px">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                amet architecto beatae cumque dicta illum, ipsam molestias odit,
+                quae, quibusdam repudiandae tenetur velit! Cumque distinctio
+                esse fugiat illum perferendis quaerat quidem, quis repellat
+                repellendus similique. Ab animi aut blanditiis dolor eveniet
+                explicabo, fugit harum iure mollitia necessitatibus nihil nostrum,
+                quam quo quod repudiandae sint tenetur! Alias dolor et laudantium
+                perspiciatis possimus, quaerat quas quasi vitae. Nemo possimus
+                provident quasi rem totam. A amet aperiam, corporis ducimus eius
+                minus nulla obcaecati quia repellendus soluta tempore, voluptatibus
+                voluptatum! Assumenda cumque ex incidunt iste magni perspiciatis
+                quia ratione vel voluptas voluptatem? Itaque, voluptatibus.
+            </div>
+            <div style="max-width: 700px;">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
+                dolorum ex exercitationem inventore ipsa laborum maiores nobis
+                numquam, repellendus sed similique tempore veniam vero? Aliquam
+                consectetur dolorum ex, exercitationem explicabo, hic incidunt
+                maxime molestias mollitia nam neque nisi obcaecati rem totam
+                voluptatem! Dolore excepturi iste itaque odio quae totam veritatis,
+                vitae voluptatum! Atque exercitationem perspiciatis provident quas
+                repellat repudiandae soluta tenetur voluptas. Et labore, maiores.
+                Aspernatur culpa dolore eos, explicabo iste mollitia praesentium
+                provident repellat, rerum sequi sit tenetur ullam unde. Assumenda
+                deleniti earum, neque odio reiciendis suscipit. Adipisci placeat,
+                sapiente. A aliquam amet, architecto at beatae cum dolorem doloremque
+                est ex expedita explicabo fugit incidunt ipsum itaque laudantium minus,
+                nisi nobis praesentium, qui quidem reiciendis repellendus reprehenderit
+                repudiandae sequi tempore temporibus ut! Accusantium ad assumenda autem
+                consectetur consequatur debitis deleniti dignissimos dolores doloribus
+                eaque eius eligendi, et id modi non officiis provident qui recusandae
+                repellendus sapiente sed temporibus unde voluptatum. Adipisci animi
+                architecto distinctio ducimus earum eligendi enim fuga fugiat ipsum
+                itaque iure libero, modi molestiae nam nisi praesentium quas reprehenderit
+                sequi ullam veniam? Asperiores maxime, optio placeat quod repellat
+                repellendus rerum saepe soluta voluptas voluptate. Asperiores aut,
+                autem eum excepturi illum itaque modi numquam recusandae sequi
+                voluptatibus. A.
+            </div>
+        </main>
     </body>
 </html>
