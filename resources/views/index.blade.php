@@ -49,6 +49,11 @@
                 <a href="">
                     <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="h-14 w-14 rounded-xl">
                 </a>
+                <div class="mx-4">
+                    <h4 class="text-xl font-semibold">
+                        <a href="" class="hover:underline">A random title can go here</a>
+                    </h4>
+                </div>
             </div>
         </div><!-- end idea-container -->
     </div><!-- end ideas container -->
