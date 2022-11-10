@@ -20,6 +20,10 @@ module.exports = {
                 gray: colors.neutral,
                 'gray-background': '#f7f8fc'
             },
+            spacing: {
+                70: '17.5rem',
+                175: '43.75rem'
+            },
             maxWidth: {
                 custom: '62.5rem'
             },

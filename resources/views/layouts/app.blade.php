@@ -47,8 +47,8 @@
             </div>
         </header>
 
-        <main class="container mx-auto max-w-custom flex>
-            <div style="max-width: 280px; margin-right: 20px">
+        <main class="container mx-auto max-w-custom flex">
+            <div class="w-70 mr-5">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
                 amet architecto beatae cumque dicta illum, ipsam molestias odit,
                 quae, quibusdam repudiandae tenetur velit! Cumque distinctio
@@ -62,7 +62,7 @@
                 voluptatum! Assumenda cumque ex incidunt iste magni perspiciatis
                 quia ratione vel voluptas voluptatem? Itaque, voluptatibus.
             </div>
-            <div style="max-width: 700px;">
+            <div class="w-175">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
                 dolorum ex exercitationem inventore ipsa laborum maiores nobis
                 numquam, repellendus sed similique tempore veniam vero? Aliquam
