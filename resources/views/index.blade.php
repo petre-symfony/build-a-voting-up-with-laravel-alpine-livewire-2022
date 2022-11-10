@@ -27,4 +27,14 @@
             <input type="search" placeholder="Find an idea" class="w-full rounded-xl bg-white px-4 py-2 border-none pl-8 placeholder-gray-900">
         </div>
     </div><!-- end filters -->
+    <div class="ideas-container space-y-6 my-6">
+        <div class="idea-container bg-white rounded-xl flex">
+            <div class="border-r border-gray-100 px-5 py-8">
+                <div class="text-center">
+                    <div class="font-semibold text-2xl">12</div>
+                    <div class="text-gray-500">Votes</div>
+                </div>
+            </div>
+        </div><!-- end idea-container -->
+    </div><!-- end ideas container -->
 </x-app-layout>
