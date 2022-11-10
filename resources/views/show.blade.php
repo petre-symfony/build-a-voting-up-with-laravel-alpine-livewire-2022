@@ -44,7 +44,7 @@
                             <svg class="text-gray-400 h-full scale-150" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
                                 <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                             </svg>
-                            <ul class="absolute w-44 text-left ml-8 font-semibold bg-white shadow-dialog rounded-xl py-3">
+                            <ul class="hidden absolute w-44 text-left ml-8 font-semibold bg-white shadow-dialog rounded-xl py-3">
                                 <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
                                 <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Delete Post</a></li>
                             </ul>
@@ -79,6 +79,23 @@
                 <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
+            </button>
+        </div>
+        <div class="flex items-center space-x-3">
+            <div class="bg-white font-semibold text-center rounded-xl px-3 py-2">
+                <div class="text-xl leading-snug">12</div>
+                <div class="text-gray-400 text-xs leading-none">Votes</div>
+            </div>
+
+            <button
+                type="button"
+                class="h-11 w-32 uppercase
+                    text-xs bg-gray-200 font-semibold rounded-xl
+                    border border-gray-200 hover:border-gray-400
+                    transition duration-150 ease-in px-6 py-3
+                "
+            >
+                <span>Vote</span>
             </button>
         </div>
     </div><!-- end buttons-container -->
