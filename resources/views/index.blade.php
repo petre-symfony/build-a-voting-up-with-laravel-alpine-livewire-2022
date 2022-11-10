@@ -53,6 +53,12 @@
                     <h4 class="text-xl font-semibold">
                         <a href="" class="hover:underline">A random title can go here</a>
                     </h4>
+                    <div class="text-gray-600 mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolores
+                        dolorum enim nesciunt quibusdam. Excepturi explicabo nihil qui quod veniam?
+                        Aliquid asperiores dignissimos dolor nostrum quibusdam reiciendis
+                        reprehenderit voluptate. Veniam?
+                    </div>
                 </div>
             </div>
         </div><!-- end idea-container -->
