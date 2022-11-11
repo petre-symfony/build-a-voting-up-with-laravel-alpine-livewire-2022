@@ -60,6 +60,7 @@
                             <ul
                                 x-cloak
                                 x-show="isOpen"
+                                x-transition.origin.top.left.duration.150ms
                                 @click.away="isOpen=false"
                                 @keydown.escape.window="isOpen = false"
                                 class="
