@@ -89,7 +89,7 @@
                                     <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
                                 </svg>
                                 <ul
-                                    x-cloack
+                                    x-cloak
                                     x-show="isOpen"
                                     x-transition.origin.top.left.duration.150ms
                                     @click.away="isOpen = false"
@@ -103,6 +103,18 @@
                                     <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Delete Post</a></li>
                                 </ul>
                             </button>
+                        </div>
+                        <div class="flex items-center md:hidden mt-4 md:mt-0">
+                            <div class="bg-gray-100 text-center rounded-xl h-10 px-4 py-2 pr-8">
+                                <div class="text-sm font-bold leading-none">12</div>
+                                <div class="text-xxs font-semibold leading-none text-gray-400">Votes</div>
+                            </div>
+                            <button
+                                class="w-20 bg-gray-200 border border-gray-200 hover:border-gray-400
+                                    transition duration-150 ease-in font-bold text-xxs text-white uppercase
+                                    rounded-xl px-4 py-3 -mx-5
+                                "
+                            >Vote</button>
                         </div>
                     </div>
                 </div>
