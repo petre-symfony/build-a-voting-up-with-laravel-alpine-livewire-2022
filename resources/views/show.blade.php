@@ -128,20 +128,32 @@
                         <div class="space-y-2">
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input class="form-radio" type="radio" checked="" name="radio-direct" value="1">
-                                    <span class="ml-2">Option 1</span>
+                                    <input class="bg-gray-200 text-black" type="radio" checked="" name="radio-direct" value="1">
+                                    <span class="ml-2">Open</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input class="form-radio" type="radio" name="radio-direct" value="2">
-                                    <span class="ml-2">Option 2</span>
+                                    <input class="bg-gray-200 text-purple" type="radio" name="radio-direct" value="2">
+                                    <span class="ml-2">Considering</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input class="form-radio" type="radio" name="radio-direct" value="3">
-                                    <span class="ml-2">Option 3</span>
+                                    <input class="bg-gray-200 text-yellow" type="radio" name="radio-direct" value="3">
+                                    <span class="ml-2">In Progress</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="bg-gray-200 text-green" type="radio" name="radio-direct" value="3">
+                                    <span class="ml-2">Implemented</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="bg-gray-200 text-red" type="radio" name="radio-direct" value="3">
+                                    <span class="ml-2">Closed</span>
                                 </label>
                             </div>
                         </div>
