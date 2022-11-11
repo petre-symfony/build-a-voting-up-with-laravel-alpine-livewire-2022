@@ -191,6 +191,13 @@
                                 <span class="ml-1">update</span>
                             </button>
                         </div>
+
+                        <div>
+                            <label class="inline-flex items-center">
+                                <input class="form-checkbox" type="checkbox" checked="">
+                                <span class="ml-2">Option 1</span>
+                            </label>
+                        </div>
                     </form>
                 </div>
             </div>
