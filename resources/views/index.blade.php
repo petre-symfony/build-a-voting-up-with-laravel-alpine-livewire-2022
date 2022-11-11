@@ -97,6 +97,7 @@
                                     class="
                                         absolute w-44 text-left ml-8  font-semibold bg-white
                                         shadow-dialog rounded-xl py-3
+                                        md:ml-8 top-8 md:top-6 right-0 md:left-0
                                     "
                                 >
                                     <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
