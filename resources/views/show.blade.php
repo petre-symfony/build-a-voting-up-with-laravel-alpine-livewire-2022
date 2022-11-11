@@ -61,6 +61,7 @@
                                 x-cloak
                                 x-show="isOpen"
                                 @click.away="isOpen=false"
+                                @keydown.escape.window="isOpen = false"
                                 class="
                                     absolute w-44 text-left ml-8 font-semibold bg-white
                                     shadow-dialog rounded-xl py-3
