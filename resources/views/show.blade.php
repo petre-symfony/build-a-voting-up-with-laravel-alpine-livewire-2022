@@ -180,7 +180,7 @@
                     @click.away="isOpen = false"
                     @keydown.escape.window="isOpen = false"
                     class="
-                        absolute z-20 w-76 text-left font-semibold text-sm bg-white
+                        absolute z-20 w-64 md:w-76 text-left font-semibold text-sm bg-white
                         shadow-dialog rounded-xl mt-5
                     "
                 >
