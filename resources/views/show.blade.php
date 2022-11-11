@@ -71,7 +71,7 @@
                 >
                     <span class="ml-1">Reply</span>
                 </button>
-                <div class="hidden absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-5">
+                <div class="absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-5">
                     <form action="" class="space-y-4 px-4 py-6">
                         <div>
                             <textarea
@@ -268,7 +268,7 @@
                 </div>
                 <div class="mx-4 w-full">
                     <h4 class="text-xl font-semibold">
-                        <a href="" class="hover:underline">Status Changed to "Under Construction"</a>
+                        <a href="" class="hover:underline">Status Changed to "Under Consideration"</a>
                     </h4>
                     <div class="text-gray-600 mt-3 line-clamp-3">
                         Lorem ipsum dolor sit amet
