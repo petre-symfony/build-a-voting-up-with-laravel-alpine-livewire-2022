@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row flex-1 px-2 py-6">
-                <div class="mx-2 md:mx-4">
+                <div class="mx-2 md:mx-0">
                     <a href="" class="flex-none">
                         <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="h-14 w-14 rounded-xl">
                     </a>
