@@ -9,12 +9,12 @@
     </div>
     <div class="idea-container bg-white rounded-xl flex mt-4">
         <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
-            <div>
+            <div class="flex-none mx-4">
                 <a href="" class="flex-none">
                     <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="h-14 w-14 rounded-xl">
                 </a>
             </div>
-            <div class="mx-4 w-full">
+            <div class="mx-2 md:mx-4 w-full">
                 <h4 class="text-xl font-semibold">
                     <a href="" class="hover:underline">A random title can go here</a>
                 </h4>
@@ -25,10 +25,10 @@
                     nostrum nulla odio odit omnis placeat, quasi qui quis quisquam quos saepe
                     sint ullam unde.
                 </div>
-                <div class="flex items-center justify-between mt-6">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mt-6">
                     <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                        <div class="font-bold text-gray-900">John Doe</div>
-                        <div>&bull;</div>
+                        <div class="hidden md:block font-bold text-gray-900">John Doe</div>
+                        <div class="hidden md:block">&bull;</div>
                         <div>10 hours ago</div>
                         <div>&bull;</div>
                         <div>Category 1</div>
@@ -37,7 +37,7 @@
                     </div>
                     <div
                         x-data = "{ isOpen: false}"
-                        class="flex items-center space-x-2"
+                        class="flex items-center space-x-2 mt-4 md:mt-0"
                     >
                         <div
                             class="bg-gray-200 text-xxs font-bold uppercase
