@@ -44,7 +44,9 @@ class IdeaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(Idea $idea) {
-        //
+        return view('idea.show', [
+            'idea' => $idea
+        ]);
     }
 
     /**

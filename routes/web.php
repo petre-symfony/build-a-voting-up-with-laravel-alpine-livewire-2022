@@ -16,6 +16,6 @@ use App\Http\Controllers\IdeaController;
 
 Route::get('/', [IdeaController::class, 'index'])->name('idea.index');
 
-Route::view('/idea', 'show');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('idea.show');
 
 require __DIR__.'/auth.php';
