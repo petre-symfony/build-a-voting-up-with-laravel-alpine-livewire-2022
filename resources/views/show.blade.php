@@ -193,9 +193,9 @@
                         </div>
 
                         <div>
-                            <label class="inline-flex items-center">
-                                <input class="form-checkbox" type="checkbox" checked="">
-                                <span class="ml-2">Option 1</span>
+                            <label class="font-normal inline-flex items-center">
+                                <input class="rounded bg-gray-200" type="checkbox" name="notify_voters" checked="">
+                                <span class="ml-2">Notify all voters</span>
                             </label>
                         </div>
                     </form>
