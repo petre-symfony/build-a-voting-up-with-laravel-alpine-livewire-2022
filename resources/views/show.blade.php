@@ -71,7 +71,7 @@
                 >
                     <span class="ml-1">Reply</span>
                 </button>
-                <div class="absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-5">
+                <div class="hidden absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-5">
                     <form action="" class="space-y-4 px-4 py-6">
                         <div>
                             <textarea
@@ -109,19 +109,45 @@
                     </form>
                 </div>
             </div>
-            <button
-                type="button"
-                class="flex items-center justify-center h-11 w-36
-                    text-sm bg-gray-200 font-semibold rounded-xl
-                    border border-gray-200 hover:border-gray-400
-                    transition duration-150 ease-in px-6 py-3
-                "
-            >
-                <span>Set Status</span>
-                <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-            </button>
+            <div class="relative">
+                <button
+                    type="button"
+                    class="flex items-center justify-center h-11 w-36
+                        text-sm bg-gray-200 font-semibold rounded-xl
+                        border border-gray-200 hover:border-gray-400
+                        transition duration-150 ease-in px-6 py-3
+                    "
+                >
+                    <span>Set Status</span>
+                    <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div class="absolute z-20 w-76 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-5">
+                    <form action="" class="space-y-4 px-4 py-6">
+                        <div class="space-y-2">
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="form-radio" type="radio" checked="" name="radio-direct" value="1">
+                                    <span class="ml-2">Option 1</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="form-radio" type="radio" name="radio-direct" value="2">
+                                    <span class="ml-2">Option 2</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input class="form-radio" type="radio" name="radio-direct" value="3">
+                                    <span class="ml-2">Option 3</span>
+                                </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="flex items-center space-x-3">
             <div class="bg-white font-semibold text-center rounded-xl px-3 py-2">
