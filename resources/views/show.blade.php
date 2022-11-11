@@ -91,7 +91,7 @@
         </div>
     </div><!-- end idea-container -->
     <div class="buttons-container flex items-center justify-between md:mt-6">
-        <div class="flex items-center space-x-4 ml-6">
+        <div class="flex flex-col md:flex-row md:items-center md:space-x-4">
             <div
                 x-data = "{ isOpen: false}"
                 class="relative"
@@ -165,7 +165,7 @@
                     class="flex items-center justify-center h-11 w-36
                         text-sm bg-gray-200 font-semibold rounded-xl
                         border border-gray-200 hover:border-gray-400
-                        transition duration-150 ease-in px-6 py-3
+                        transition duration-150 ease-in px-6 py-3 mt-2 md:mt-0
                     "
                 >
                     <span>Set Status</span>
