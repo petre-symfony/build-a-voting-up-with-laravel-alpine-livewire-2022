@@ -52,7 +52,7 @@
         </header>
 
         <main class="container mx-auto max-w-custom flex flex-col md:flex-row">
-            <div class="mx-auto md:mx-1 w-70 mr-5">
+            <div class="mx-auto md:mx-0 w-70 md:mr-5">
                 <div
                     class="border-2 md:sticky md:top-8 border-blue rounded-xl mt-16 bg-white"
                     style="
