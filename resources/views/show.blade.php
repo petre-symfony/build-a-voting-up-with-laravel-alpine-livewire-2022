@@ -290,7 +290,7 @@
                         <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="h-14 w-14 rounded-xl">
                     </a>
                 </div>
-                <div class="mx-4 w-full">
+                <div class="md:mx-4 w-full">
                     {{--<h4 class="text-xl font-semibold">
                         <a href="" class="hover:underline">A random title can go here</a>
                     </h4> --}}
@@ -326,6 +326,7 @@
                                     class="
                                         absolute w-44 text-left ml-8 font-semibold
                                         bg-white shadow-dialog rounded-xl py-3
+                                        md:ml-8 top-8 md:top-6 right-0 md:left-0 z-10
                                     "
                                 >
                                     <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
