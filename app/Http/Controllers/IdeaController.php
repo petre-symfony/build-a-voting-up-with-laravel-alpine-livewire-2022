@@ -13,7 +13,9 @@ class IdeaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        return view('idea.index', [
+            'ideas' => Idea::all()
+        ]);
     }
 
     /**
