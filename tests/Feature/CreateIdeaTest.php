@@ -27,4 +27,11 @@ class CreateIdeaTest extends TestCase {
         $response->assertDontSee('Please login to create an idea');
         $response->assertSee('Let us know what you would like and we\'ll take a look over!', false);
     }
+
+    /** @test */
+    public function main_page_contains_create_idea_livewire_component() {
+        $this->actingAs(User::factory()->create())
+            ->get(route('idea.index'))
+            ->assertSeeLivewire('create-idea');
+    }
 }
