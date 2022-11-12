@@ -80,12 +80,12 @@ class ShowIdeasTest extends TestCase {
         $ideaEleven->save();
 
         $response = $this->get('/');
-        $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaEleven->title);
-
-        $response = $this->get('/?page=2');
         $response->assertDontSee($ideaOne->title);
         $response->assertSee($ideaEleven->title);
+
+        $response = $this->get('/?page=2');
+        $response->assertSee($ideaOne->title);
+        $response->assertDontSee($ideaEleven->title);
     }
 
     /** @test */
