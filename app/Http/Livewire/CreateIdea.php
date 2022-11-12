@@ -12,8 +12,16 @@ class CreateIdea extends Component {
     public $category = 1;
     public $description;
 
+    protected $rules = [
+        'title' => 'required|min:4',
+        'category' => 'required|integer',
+        'description' => 'required|min:4',
+    ];
+
     public function createIdea() {
         if (auth()->check()) {
+            $this->validate();
+
             Idea::create([
                 'user_id' => auth()->id(),
                 'category_id' => $this->category,

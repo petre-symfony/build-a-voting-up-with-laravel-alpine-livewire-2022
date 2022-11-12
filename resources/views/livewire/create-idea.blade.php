@@ -4,6 +4,9 @@
                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
                placeholder="Your Idea"
         >
+        @error('title')
+            <p class="text-red text-xs mt-1">{{ $message }}</p>
+        @enderror
     </div>
     <div>
         <select
@@ -15,6 +18,9 @@
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
         </select>
+        @error('category')
+            <p class="text-red text-xs mt-1">{{ $message }}</p>
+        @enderror
     </div>
     <div>
         <textarea
@@ -23,6 +29,9 @@
             placeholder="Describe your idea"
             wire:model.defer="description"
         ></textarea>
+        @error('description')
+            <p class="text-red text-xs mt-1">{{ $message }}</p>
+        @enderror
     </div>
     <div class="flex items-center justify-between space-x-3">
         <button
