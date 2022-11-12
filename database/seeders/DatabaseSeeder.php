@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\User;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder {
@@ -14,18 +15,19 @@ class DatabaseSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        User::factory(7)->create();
-        Category::factory(4)->create();
+        User::factory(20)->create();
 
+        Category::factory()->create(['name' => 'Category 1']);
         Category::factory()->create(['name' => 'Category 2']);
         Category::factory()->create(['name' => 'Category 3']);
         Category::factory()->create(['name' => 'Category 4']);
 
-        for ($i = 0; $i < 30; $i++) {
-            Idea::factory(30)->create([
-                'user_id' => User::all()->random(),
-                'category_id' => Category::all()->random(),
-            ]);
-        }
+        Status::factory()->create(['name' => 'Open']);
+        Status::factory()->create(['name' => 'Considering']);
+        Status::factory()->create(['name' => 'In Progress']);
+        Status::factory()->create(['name' => 'Implemented']);
+        Status::factory()->create(['name' => 'Closed']);
+
+        Idea::factory(100)->existing()->create();
     }
 }
