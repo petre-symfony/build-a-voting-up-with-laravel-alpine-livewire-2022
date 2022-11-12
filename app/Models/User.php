@@ -46,9 +46,12 @@ class User extends Authenticatable {
     }
 
     public function getAvatar() {
+        $randomInteger = rand(1, 36);
         return 'https://gravatar.com/avatar/'
             .md5($this->email)
             .'?s=200'
-            .'&d=mp';
+            .'&d=https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-'
+            .$randomInteger
+            .'.png';
     }
 }
