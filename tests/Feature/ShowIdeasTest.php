@@ -28,4 +28,18 @@ class ShowIdeasTest extends TestCase {
         $response->assertSee($ideaTwo->title);
         $response->assertSee($ideaTwo->description);
     }
+
+    /** @test */
+    public function single_idea_shows_correctly_on_the_show_page() {
+        $idea = Idea::factory()->create([
+            'title' => 'My First Idea',
+            'description' => 'Description of my first idea'
+        ]);
+
+        $response = $this->get(route('idea.show', $idea));
+
+        $response->assertSuccessful();
+        $response->assertSee($idea->title);
+        $response->assertSee($idea->description);
+    }
 }
