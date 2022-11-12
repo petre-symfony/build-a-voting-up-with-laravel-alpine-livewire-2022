@@ -63,4 +63,28 @@ class ShowIdeasTest extends TestCase {
         $response->assertDontSee($ideaOne->title);
         $response->assertSee($ideaEleven->title);
     }
+
+    /** @test */
+    public function same_idea_title_different_slugs(){
+        $ideaOne = Idea::factory()->create([
+            'title' => 'My First Idea',
+            'description' => 'Description of my first idea'
+        ]);
+        $ideaTwo = Idea::factory()->create([
+            'title' => 'My First Idea',
+            'description' => 'Another description for my first idea'
+        ]);
+
+        $response = $this->get(route('idea.show', $ideaOne));
+
+        $response->assertSuccessful();
+        $this->assertTrue(request()->path() === 'ideas/my-first-idea');
+
+        $response = $this->get(route('idea.show', $ideaTwo));
+
+        $response->assertSuccessful();
+        $this->assertTrue(request()->path() === 'ideas/my-first-idea-2');
+    }
+
+    
 }
