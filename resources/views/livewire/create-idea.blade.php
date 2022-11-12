@@ -1,4 +1,4 @@
-<form action="" wire:submit.prevent="createIdes" method="POST" class="space-y-4 px-4 py-6">
+<form action="" wire:submit.prevent="createIdea" method="POST" class="space-y-4 px-4 py-6">
     <div>
         <input type="text" wire:model.defer="title"
                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
@@ -49,5 +49,13 @@
         >
             <span class="ml-1">Submit</span>
         </button>
+    </div>
+
+    <div>
+        @if('success_message')
+            <div class="text-green mt-4">
+                {{ session('success_message') }}
+            </div>
+        @endif
     </div>
 </form>
