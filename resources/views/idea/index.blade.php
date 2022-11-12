@@ -31,8 +31,12 @@
         @foreach($ideas as $idea)
         <div
             x-data
-            @click="
-                $event.target.closest('.idea-container').querySelector('.idea-link').click();
+            @click="const target = $event.target.tagName.toLowerCase()
+                const ignores = ['button', 'svg', 'path', 'a']
+
+                if (!ignores.includes(target)) {
+                    $event.target.closest('.idea-container').querySelector('.idea-link').click()
+                }
             "
             class="
                 idea-container hover:shadow-card transition duration-150 ease-in bg-white
