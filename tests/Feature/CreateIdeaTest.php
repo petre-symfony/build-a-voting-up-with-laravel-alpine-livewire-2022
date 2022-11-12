@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\CreateIdea;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class CreateIdeaTest extends TestCase {
@@ -33,5 +35,17 @@ class CreateIdeaTest extends TestCase {
         $this->actingAs(User::factory()->create())
             ->get(route('idea.index'))
             ->assertSeeLivewire('create-idea');
+    }
+
+    /** @test */
+    public function create_idea_form_validation_works() {
+        Livewire::actingAs(User::factory()->create())
+            ->test(CreateIdea::class)
+            ->set('title', '')
+            ->set('category', '')
+            ->set('description', '')
+            ->call('createIdea')
+            ->assertHasErrors(['title', 'category', 'description'])
+            ->assertSee('The title field is required');
     }
 }
