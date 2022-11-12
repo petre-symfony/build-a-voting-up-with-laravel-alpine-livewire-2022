@@ -32,4 +32,16 @@ class Idea extends Model {
     public function status(){
         return $this->belongsTo(Status::class);
     }
+
+    public function getStatusClasses(){
+        $allStatuses = [
+            'Open' => 'bg-gray-200',
+            'Considering' => 'bg-purple text-white',
+            'In Progress' => 'bg-yellow text-white',
+            'Implemented' => 'bg-green text-white',
+            'Closed' => 'bg-red text-white'
+        ];
+
+        return $allStatuses[$this->status->name];
+    }
 }
