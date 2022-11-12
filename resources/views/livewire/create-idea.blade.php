@@ -1,16 +1,19 @@
-<form action="" method="POST" class="space-y-4 px-4 py-6">
+<form action="" wire:submit.prevent="createIdes" method="POST" class="space-y-4 px-4 py-6">
     <div>
-        <input type="text"
+        <input type="text" wire:model.defer="title"
                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
                placeholder="Your Idea"
         >
     </div>
     <div>
-        <select name="category_add" id="category_add" class="w-full rounded-xl border-none bg-gray-100 text-sm px-4 py-2">
-            <option value="Category One">Category One</option>
-            <option value="Category Two">Category Two</option>
-            <option value="Category Three">Category Three</option>
-            <option value="Category Four">Category Four</option>
+        <select
+            name="category_add" id="category_add"
+            class="w-full rounded-xl border-none bg-gray-100 text-sm px-4 py-2"
+            wire:model.defer="category"
+        >
+            @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
         </select>
     </div>
     <div>
@@ -18,6 +21,7 @@
             name="idea" id="idea" cols="30" rows="4"
             class="w-full bg-gray-100 rounded-xl placeholder-gray-900 text-sm px-4 py-2 border-none"
             placeholder="Describe your idea"
+            wire:model.defer="description"
         ></textarea>
     </div>
     <div class="flex items-center justify-between space-x-3">
