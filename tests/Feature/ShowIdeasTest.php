@@ -86,5 +86,5 @@ class ShowIdeasTest extends TestCase {
         $this->assertTrue(request()->path() === 'ideas/my-first-idea-2');
     }
 
-    
+
 }
