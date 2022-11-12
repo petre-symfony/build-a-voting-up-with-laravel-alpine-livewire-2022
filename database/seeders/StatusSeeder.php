@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Status;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,8 @@ class StatusSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        //
+        Status::factory()->create([
+            'classes' => 'bg-gray-200'
+        ]);
     }
 }
