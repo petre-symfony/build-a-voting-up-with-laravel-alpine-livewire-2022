@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
-class UserTest extends TestCase {
+class GravatarTest extends TestCase {
     use RefreshDatabase;
 
     /** @test */
