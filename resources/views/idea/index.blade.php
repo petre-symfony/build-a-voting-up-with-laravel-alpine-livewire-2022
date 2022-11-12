@@ -90,7 +90,7 @@
                                     h-7 py-2 px-4
                                 "
                             >
-                                Open
+                                {{ $idea->status->name }}
                             </div>
                             <button
                                 @click="isOpen = !isOpen"
