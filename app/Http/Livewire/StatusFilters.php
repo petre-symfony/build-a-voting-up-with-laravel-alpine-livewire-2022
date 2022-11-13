@@ -22,11 +22,11 @@ class StatusFilters extends Component {
     public function setStatus($newStatus){
         $this->status = $newStatus;
 
-        if ($this->getPreviousRouteName() === 'idea.show') {
+        /**  if ($this->getPreviousRouteName() === 'idea.show') { */
             return $this->redirect(route('idea.index', [
                 'status' => $this->status
             ]));
-        }
+        /** } */
     }
 
     public function render() {
