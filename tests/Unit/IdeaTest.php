@@ -37,5 +37,6 @@ class IdeaTest extends TestCase {
 
         $this->assertTrue($idea->isVotedByUser($user));
         $this->assertFalse($idea->isVotedByUser($userB));
+        $this->assertFalse($idea->isVotedByUser(null));
     }
 }
