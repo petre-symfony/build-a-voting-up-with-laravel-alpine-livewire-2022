@@ -35,7 +35,7 @@ class IdeasIndex extends Component {
     public function updatingCategory() {
         $this->resetPage();
     }
-    
+
     public function updatedFilter(){
         if ($this->filter == 'My Ideas') {
             if (!auth()->check()){
