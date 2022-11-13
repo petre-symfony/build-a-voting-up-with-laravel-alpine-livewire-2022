@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\Vote;
@@ -47,7 +48,8 @@ class IdeasIndex extends Component {
                     ->whereColumn('idea_id', 'ideas.id')
                 ])
                 ->orderBy('id', 'desc')
-                ->simplePaginate(Idea::PAGINATION_COUNT)
+                ->simplePaginate(Idea::PAGINATION_COUNT),
+            'categories' => Category::all()
         ]);
     }
 }
