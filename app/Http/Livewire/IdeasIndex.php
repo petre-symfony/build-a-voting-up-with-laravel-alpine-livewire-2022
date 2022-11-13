@@ -36,6 +36,10 @@ class IdeasIndex extends Component {
         $this->resetPage();
     }
 
+    public function updatingFilter() {
+        $this->resetPage();
+    }
+
     public function updatedFilter(){
         if ($this->filter == 'My Ideas') {
             if (!auth()->check()){
