@@ -14,10 +14,12 @@ class IdeasIndex extends Component {
 
     public $status;
     public $category;
+    public $filter;
 
     protected $queryString = [
         'status',
-        'category'
+        'category',
+        'filter'
     ];
 
     public function mount() {
@@ -50,6 +52,9 @@ class IdeasIndex extends Component {
                 })
                 ->when($this->category && $this->category !== 'All Categories', function($query) use ($categories){
                     return $query->where('category_id', $categories->pluck('id', 'name')->get($this->category));
+                })
+                ->when($this->filter && $this->filter === 'Top Voted', function($query) {
+                    return $query->orderByDesc('votes_count');
                 })
                 ->withCount('votes')
                 ->addSelect(['voted_by_user' => Vote::select('id')
