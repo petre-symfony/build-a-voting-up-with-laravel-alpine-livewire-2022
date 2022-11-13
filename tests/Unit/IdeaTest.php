@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class IdeaTest extends TestCase {
     use RefreshDatabase;
-    
+
     /** @test */
     public function can_check_if_is_voted_for_by_user(){
         $user = User::factory()->create();
