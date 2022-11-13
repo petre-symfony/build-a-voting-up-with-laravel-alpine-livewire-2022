@@ -192,4 +192,46 @@ class OtherFiltersTest extends TestCase {
                     && $ideas->get(1)->title === 'My First Idea';
             });
     }
+
+    /** @test */
+    public function no_filters_works_correctly(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open']);
+
+        $ideaOne = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $ideaTwo = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My Second Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $ideaThree = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryTwo->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My Third Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Livewire::test(IdeasIndex::class)
+            ->set('filter', 'No Filter')
+            ->assertViewHas('ideas', function($ideas){
+                return $ideas->count() == 3
+                    && $ideas->first()->title === 'My Third Idea'
+                    && $ideas->get(1)->title === 'My Second Idea';
+            });
+    }
 }
