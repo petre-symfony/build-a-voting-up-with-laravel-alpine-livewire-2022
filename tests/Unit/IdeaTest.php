@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Http\Livewire\IdeaIndex;
 use App\Http\Livewire\IdeaShow;
 use App\Models\Category;
 use App\Models\Idea;
@@ -66,6 +67,40 @@ class IdeaTest extends TestCase {
         Livewire::actingAs($user)
             ->test(IdeaShow::class, [
                 'idea' => $idea,
+                'votesCount' => 5
+            ])
+            ->assertSet('hasVoted', true)
+            ->assertSee('Voted');
+    }
+
+    /** @test */
+    public function user_who_is_logged_in_shows_voted_if_idea_already_voted_for_on_index_page(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Vote::factory()->create([
+            'idea_id' => $idea->id,
+            'user_id' => $user->id
+        ]);
+
+        $response = $this->actingAs($user)->get(route('idea.index'));
+
+        $ideaWithVotes = $response['ideas']->items()[0];
+
+        Livewire::actingAs($user)
+            ->test(IdeaIndex::class, [
+                'idea' => $ideaWithVotes,
                 'votesCount' => 5
             ])
             ->assertSet('hasVoted', true)

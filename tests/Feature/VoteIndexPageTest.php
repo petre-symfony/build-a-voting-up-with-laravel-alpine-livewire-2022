@@ -89,7 +89,7 @@ class VoteIndexPageTest extends TestCase {
             'votesCount' => 5
         ])
             ->assertSet('votesCount', 5)
-            ->assertSeeHtml('<div class="font-semibold text-2xl">5</div>')
-            ->assertSeeHtml('<div class="text-sm font-bold leading-none">5</div>');
+            ->assertSeeHtml('<div class="font-semibold text-2xl ">5</div>')
+            ->assertSeeHtml('<div class="text-sm font-bold leading-none ">5</div>');
     }
 }
