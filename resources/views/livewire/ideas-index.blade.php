@@ -29,7 +29,11 @@
     </div><!-- end filters -->
     <div class="ideas-container space-y-6 my-6">
         @foreach($ideas as $idea)
-            <livewire:idea-index :idea="$idea" :votesCount="$idea->votes_count"/>
+            <livewire:idea-index
+                :idea="$idea"
+                :key="$idea->id"
+                :votesCount="$idea->votes_count"
+            />
         @endforeach
     </div><!-- end ideas container -->
     <div>{{ $ideas->links() }}</div>
