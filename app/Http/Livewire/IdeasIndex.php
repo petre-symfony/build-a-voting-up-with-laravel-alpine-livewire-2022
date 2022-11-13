@@ -20,7 +20,16 @@ class IdeasIndex extends Component {
 
     protected $listeners = ['queryStringUpdatedStatus']; //the same as 'queryStringUpdatedStatus' => 'queryStringUpdatedStatus'
 
+    public function updatingStatus() {
+        $this->resetPage();
+    }
+
+    public function updatingCategory() {
+        $this->resetPage();
+    }
+
     public function queryStringUpdatedStatus($newStatus) {
+        $this->updatingStatus();
         $this->status = $newStatus;
     }
 
