@@ -23,7 +23,7 @@ class IdeasIndex extends Component {
     public function mount() {
         $this->status =request()->status ?? 'All';
     }
-    
+
     protected $listeners = ['queryStringUpdatedStatus']; //the same as 'queryStringUpdatedStatus' => 'queryStringUpdatedStatus'
 
     public function updatingStatus() {
