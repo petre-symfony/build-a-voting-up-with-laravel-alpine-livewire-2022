@@ -11,6 +11,10 @@ class StatusFilters extends Component {
         'status'
     ];
 
+    public function setStatus($newStatus){
+        $this->status = $newStatus;
+    }
+
     public function render() {
         return view('livewire.status-filters');
     }
