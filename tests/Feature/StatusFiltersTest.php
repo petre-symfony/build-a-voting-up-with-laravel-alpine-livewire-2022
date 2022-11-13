@@ -85,6 +85,66 @@ class StatusFiltersTest extends TestCase {
     }
 
     /** @test */
+    public function filtering_works_when_query_string_in_place(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open']);
+        $statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+        $statusInProgress = Status::factory()->create(['name' => 'In Progress', 'classes' => 'bg-yellow text-white']);
+        $statusImplemented = Status::factory()->create(['name' => 'Implemented']);
+        $statusClosed = Status::factory()->create(['name' => 'Closed']);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusInProgress->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusInProgress->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Livewire::withQueryParams(['status' => 'In Progress'])
+            ->test(IdeasIndex::class)
+            ->assertViewHas('ideas', function($ideas){
+                return $ideas->count() == 2
+                    && $ideas->first()->status->name == 'In Progress';
+            });
+    }
+
+    /** @test */
     public function show_page_doesnt_show_selected_status(){
         $user = User::factory()->create();
 
