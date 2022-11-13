@@ -13,7 +13,7 @@ class IdeaIndex extends Component {
     public function mount(Idea $idea, $votesCount) {
         $this->idea = $idea;
         $this->votesCount = $votesCount;
-        $this->hasVoted = $idea->isVotedByUser(auth()->user());
+        $this->hasVoted = $idea->voted_by_user;
     }
 
     public function render() {
