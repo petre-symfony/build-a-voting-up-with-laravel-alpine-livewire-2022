@@ -127,4 +127,30 @@ class IdeaTest extends TestCase {
         $idea->vote($user);
         $this->assertTrue($idea->isVotedByUser($user));
     }
+
+    /** @test */
+    public function user_can_remove_a_vote_for_idea(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        Vote::factory()->create([
+            'idea_id' => $idea->id,
+            'user_id' => $user->id
+        ]);
+
+        $this->assertTrue($idea->isVotedByUser($user));
+        $idea->removeVote($user);
+        $this->assertFalse($idea->isVotedByUser($user));
+    }
 }
