@@ -53,4 +53,11 @@ class Idea extends Model {
             'user_id' => $user->id
         ]);
     }
+
+    public function removeVote(User $user){
+        Vote::where('idea_id', $this->id)
+            ->where('user_id', $user->id)
+            ->first()
+            ->delete();
+    }
 }
