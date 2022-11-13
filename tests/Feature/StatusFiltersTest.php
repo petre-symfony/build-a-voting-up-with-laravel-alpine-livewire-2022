@@ -83,4 +83,62 @@ class StatusFiltersTest extends TestCase {
             ->assertSee('All Ideas (2)')
             ->assertSee('Implemented (2)');
     }
+
+    /** @test */
+    public function show_page_doesnt_show_selected_status(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'Implemented']);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusImplemented->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusImplemented->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $response = $this->get(route('idea.show', $idea));
+
+        $response->assertDontSee('border-blue text-gray-900');
+    }
+
+    /** @test */
+    public function index_page_shows_selected_status(){
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusImplemented = Status::factory()->create(['id' => 4, 'name' => 'Implemented']);
+
+        Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusImplemented->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusImplemented->id,
+            'title' => 'My First Idea',
+            'description' => 'Description for my first idea'
+        ]);
+
+        $response = $this->get(route('idea.index'));
+
+        $response->assertSee('border-blue text-gray-900');
+    }
 }
