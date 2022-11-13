@@ -12,7 +12,7 @@ use Livewire\WithPagination;
 class IdeasIndex extends Component {
     use WithPagination;
 
-    public $status = 'All';
+    public $status;
     public $category;
 
     protected $queryString = [
@@ -20,6 +20,10 @@ class IdeasIndex extends Component {
         'category'
     ];
 
+    public function mount() {
+        $this->status =request()->status ?? 'All';
+    }
+    
     protected $listeners = ['queryStringUpdatedStatus']; //the same as 'queryStringUpdatedStatus' => 'queryStringUpdatedStatus'
 
     public function updatingStatus() {
