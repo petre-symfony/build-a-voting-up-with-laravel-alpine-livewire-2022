@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\VoteNotFoundException;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -61,6 +62,8 @@ class Idea extends Model {
 
         if($voteToDelete) {
             $voteToDelete->delete();
+        } else {
+            throw new VoteNotFoundException();
         }
     }
 }
