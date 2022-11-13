@@ -16,7 +16,8 @@ class IdeasIndex extends Component {
     public $category;
 
     protected $queryString = [
-        'status'
+        'status',
+        'category'
     ];
 
     protected $listeners = ['queryStringUpdatedStatus']; //the same as 'queryStringUpdatedStatus' => 'queryStringUpdatedStatus'
