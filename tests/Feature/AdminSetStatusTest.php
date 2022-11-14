@@ -79,4 +79,35 @@ class AdminSetStatusTest extends TestCase {
             ->assertSet('status', $statusConsidering->id);
 
     }
+
+    /** @test */
+    public function can_set_status_correctly(){
+        $user = User::factory()->create([
+            'email' => 'andre_madarang@hotmail.com'
+        ]);
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
+        $statusInProgress = Status::factory()->create(['id' => 3, 'name' => 'In Progress']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(SetStatus::class, [
+                'idea' => $idea
+            ])
+            ->set('status', $statusInProgress->id)
+            ->call('setStatus')
+            ->assertEmitted('statusWasUpdated');
+
+        $this->assertDatabaseHas('ideas', [
+            'id' => $idea->id,
+            'status_id' => $statusInProgress->id
+        ]);
+    }
 }
