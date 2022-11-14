@@ -27,7 +27,7 @@
             shadow-dialog rounded-xl mt-5
         "
     >
-        <form action="" class="space-y-4 px-4 py-6">
+        <form wire:submit.prevent="setStatus" action="" class="space-y-4 px-4 py-6">
             <div class="space-y-2">
                 <div>
                     <label class="inline-flex items-center">
