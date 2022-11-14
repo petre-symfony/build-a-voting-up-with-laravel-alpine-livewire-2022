@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -111,4 +112,51 @@ class ShowIdeasTest extends TestCase {
     }
 
 
+    /** @test */
+    public function in_app_back_button_works_when_index_page_visited_first() {
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()
+            ->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+
+        $ideaOne = Idea::factory()->create([
+            'user_id' => $user,
+            'title' => 'My First Idea',
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'description' => 'Description of my first idea'
+        ]);
+
+        $this->get('/?categtory=Category+2&status=Considering');
+        $response = $this->get(route('idea.show', $ideaOne));
+
+        $this->assertStringContainsString(
+            '/?categtory=Category%202&status=Considering',
+            $response['backUrl']
+        );
+    }
+
+    /** @test */
+    public function in_app_back_button_works_when_show_page_only_page_visited() {
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()
+            ->create(['name' => 'Category 1']);
+
+        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
+
+        $ideaOne = Idea::factory()->create([
+            'user_id' => $user,
+            'title' => 'My First Idea',
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
+            'description' => 'Description of my first idea'
+        ]);
+
+        $response = $this->get(route('idea.show', $ideaOne));
+
+        $this->assertEquals(route('idea.index'), $response['backUrl']);
+    }
 }
