@@ -35,7 +35,11 @@ class SetStatus extends Component {
     public function notifyAllVoters(){
         $voters = $this->idea->votes()
             ->select('name', 'email')
-            ->get();
+            ->chunk(100, function($voters){
+                foreach($voters as $user){
+                    #send mail;
+                }
+            });
 
         foreach($voters as $user){
             dump($user);
