@@ -3,7 +3,7 @@
         <li>
             <a
                 wire:click.prevent="setStatus('All')"
-                href=""
+                href="{{ route('idea.index', ['status' => 'All']) }}"
                 class="
                     border-b-4 pb-3
                     @if ($status === 'All') border-blue text-gray-900 @endif
@@ -13,7 +13,7 @@
         <li>
             <a
                 wire:click.prevent="setStatus('Considering')"
-                href=""
+                href="{{ route('idea.index', ['status' => 'Considering']) }}"
                 class="
                     text-gray-400 transition duration-150
                     ease-in border-b-4 pb-3 hover:border-blue
@@ -24,7 +24,7 @@
         <li>
             <a
                 wire:click.prevent="setStatus('In Progress')"
-                href=""
+                href="{{ route('idea.index', ['status' => 'In Progress']) }}"
                 class="
                     text-gray-400 transition duration-150
                     ease-in border-b-4 pb-3 hover:border-blue
@@ -38,7 +38,7 @@
         <li>
             <a
                 wire:click.prevent="setStatus('Implemented')"
-                href=""
+                href="{{ route('idea.index', ['status' => 'Implemented']) }}"
                 class="
                     text-gray-400 transition duration-150
                     ease-in border-b-4 pb-3 hover:border-blue
@@ -49,7 +49,7 @@
         <li>
             <a
                 wire:click.prevent="setStatus('Closed')"
-                href=""
+                href="{{ route('idea.index', ['status' => 'Closed']) }}"
                 class="
                     text-gray-400 transition duration-150
                     ease-in border-b-4 pb-3 hover:border-blue
