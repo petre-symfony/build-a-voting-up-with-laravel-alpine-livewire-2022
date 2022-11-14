@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\SetStatus;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class AdminSetStatusTest extends TestCase {
@@ -52,5 +54,29 @@ class AdminSetStatusTest extends TestCase {
         $this->actingAs($user)
             ->get(route('idea.show', $idea))
             ->assertDontSeeLivewire('set-status');
+    }
+
+    /** @test */
+    public function initial_status_is_set_correctly(){
+        $user = User::factory()->create([
+            'email' => 'andre_madaran@hotmail.com'
+        ]);
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(SetStatus::class, [
+                'idea' => $idea
+            ])
+            ->assertSet('status', $statusConsidering->id);
+
     }
 }
