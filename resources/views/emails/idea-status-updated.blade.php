@@ -1,11 +1,13 @@
 <x-mail::message>
-# Introduction
+Idea Status Updated
 
-The body of your message.
+The idea: {{ $idea->title }}
+has been updated to a status of:
+{{ $idea->status->name }}
 
-<x-mail::button :url="''">
-Button Text
-</x-mail::button>
+@component('mail::button', ['url' => route('idea.show', $idea)])
+    View Idea
+@endcomponent
 
 Thanks,<br>
 {{ config('app.name') }}

@@ -2,8 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\IdeaStatusUpdatedMailable;
 use App\Models\Idea;
 use App\Models\Status;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Http\Response;
 
@@ -37,7 +39,8 @@ class SetStatus extends Component {
             ->select('name', 'email')
             ->chunk(100, function($voters){
                 foreach($voters as $user){
-                    #send mail;
+                    Mail::to($user)
+                        ->queue(new IdeaStatusUpdatedMailable($this->idea));
                 }
             });
 
