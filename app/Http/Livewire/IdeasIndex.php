@@ -15,11 +15,13 @@ class IdeasIndex extends Component {
     public $status;
     public $category;
     public $filter;
+    public $search;
 
     protected $queryString = [
         'status',
         'category',
-        'filter'
+        'filter',
+        'search'
     ];
 
     public function mount() {
@@ -37,6 +39,10 @@ class IdeasIndex extends Component {
     }
 
     public function updatingFilter() {
+        $this->resetPage();
+    }
+
+    public function updatingSearch() {
         $this->resetPage();
     }
 
@@ -70,6 +76,9 @@ class IdeasIndex extends Component {
                 })
                 ->when($this->filter && $this->filter === 'My Ideas', function($query) {
                     return $query->where('user_id', auth()->id());
+                })
+                ->when($this->search && strlen($this->search) > 3, function ($query){
+                    return $query->where('title', 'like' , '%'.$this->search.'%');
                 })
                 ->withCount('votes')
                 ->addSelect(['voted_by_user' => Vote::select('id')
