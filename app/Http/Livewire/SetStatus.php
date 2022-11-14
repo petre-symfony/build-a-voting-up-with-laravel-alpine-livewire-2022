@@ -23,7 +23,10 @@ class SetStatus extends Component {
 
         $this->idea->status_id = $this->status;
         $this->idea->save();
+
+        $this->emit('statusWasUpdated');
     }
+
 
     public function render() {
         return view('livewire.set-status', [

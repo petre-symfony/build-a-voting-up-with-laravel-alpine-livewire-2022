@@ -1,6 +1,11 @@
 <div
     x-data = "{ isOpen: false}"
     class="relative"
+    x-init="
+        window.livewire.on('statusWasUpdated', () => {
+            isOpen = false
+        })
+    "
 >
     <button
         @click="isOpen = !isOpen"
@@ -49,13 +54,13 @@
                 </div>
                 <div>
                     <label class="inline-flex items-center">
-                        <input wire:model="status" class="bg-gray-200 text-green" type="radio" name="radio-direct" value="3">
+                        <input wire:model="status" class="bg-gray-200 text-green" type="radio" name="radio-direct" value="4">
                         <span class="ml-2">Implemented</span>
                     </label>
                 </div>
                 <div>
                     <label class="inline-flex items-center">
-                        <input wire:model="status"class="bg-gray-200 text-red" type="radio" name="radio-direct" value="3">
+                        <input wire:model="status" class="bg-gray-200 text-red" type="radio" name="radio-direct" value="5">
                         <span class="ml-2">Closed</span>
                     </label>
                 </div>
