@@ -3,10 +3,12 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\SetStatus;
+use App\Jobs\NotifyAllVoters;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\User;
+use Illuminate\Support\Facades\Queue;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
@@ -83,7 +85,7 @@ class AdminSetStatusTest extends TestCase {
     /** @test */
     public function can_set_status_correctly(){
         $user = User::factory()->create([
-            'email' => 'andre_madarang@hotmail.com'
+            'email' => 'andre_madaran@hotmail.com'
         ]);
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
@@ -109,5 +111,37 @@ class AdminSetStatusTest extends TestCase {
             'id' => $idea->id,
             'status_id' => $statusInProgress->id
         ]);
+    }
+
+    /** @test */
+    public function can_set_status_correctly_while_notifying_all_voters(){
+        $user = User::factory()->create([
+            'email' => 'andre_madaran@hotmail.com'
+        ]);
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+
+        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
+        $statusInProgress = Status::factory()->create(['id' => 3, 'name' => 'In Progress']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'status_id' => $statusConsidering->id
+        ]);
+
+        Queue::fake();
+        Queue::assertNothingPushed();
+
+        Livewire::actingAs($user)
+            ->test(SetStatus::class, [
+                'idea' => $idea
+            ])
+            ->set('status', $statusInProgress->id)
+            ->set('notifyAllVoters', true)
+            ->call('setStatus')
+            ->assertEmitted('statusWasUpdated');
+
+        Queue::assertPushed(NotifyAllVoters::class);
     }
 }
