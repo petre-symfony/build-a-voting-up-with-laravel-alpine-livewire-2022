@@ -24,7 +24,16 @@
                 To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             -->
             <div class="modal relative transform overflow-hidden rounded-tl-xl rounded-tr-xl bg-white transition-all py-4 sm:w-full sm:max-w-lg">
+                <div class="absolute top-0 right-0 pt-4 pr-4">
+                    <button class="text-gray-400 hover:text-gray-500">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="text-center text-gray-900 text-lg font-medium">Edit Idea</div>
+                    <p class="text-xs text-gray-500 text-center mt-4">You have 1 hour to edit your idea from the time you created it</p>
                     <form action="" wire:submit.prevent="createIdea" method="POST" class="space-y-4 px-4 py-6">
                         <div>
                             <input type="text" wire:model.defer="title"
