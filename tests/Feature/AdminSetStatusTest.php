@@ -18,9 +18,7 @@ class AdminSetStatusTest extends TestCase {
 
     /** @test */
     public function show_page_contains_set_status_livewire_component_when_user_is_admin() {
-        $user = User::factory()->create([
-            'email' => 'andre_madaran@hotmail.com'
-        ]);
+        $user = User::factory()->admin()->create();
 
         $idea = Idea::factory()->create();
 

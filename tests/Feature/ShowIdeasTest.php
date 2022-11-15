@@ -20,8 +20,8 @@ class ShowIdeasTest extends TestCase {
         $categoryTwo = Category::factory()
             ->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open', 'classes' => 'bg-gray-200']);
-        $statusConsidering = Status::factory()->create(['name' => 'Considering', 'classes' => 'bg-purple text-white']);
+        $statusOpen = Status::factory()->create(['name' => 'OpenUnique']);
+        $statusConsidering = Status::factory()->create(['name' => 'ConsideringUnique']);
 
         $ideaOne = Idea::factory()->create([
             'category_id' => $categoryOne->id,
@@ -38,21 +38,23 @@ class ShowIdeasTest extends TestCase {
         $response->assertSee($ideaOne->title);
         $response->assertSee($ideaOne->description);
         $response->assertSee($categoryOne->name);
-        $response->assertSee(`<div class="bg-gray-200 text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>`, false);
+        $response->assertSee(`OpenUnique`);
         $response->assertSee($ideaTwo->title);
         $response->assertSee($ideaTwo->description);
         $response->assertSee($categoryTwo->name);
-        $response->assertSee(`<div class="bg-purple text-white text-xxs font-bold uppercase leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open</div>`, false);
+        $response->assertSee('ConsideringUnique');
     }
 
     /** @test */
     public function single_idea_shows_correctly_on_the_show_page() {
         $categoryOne = Category::factory()
             ->create(['name' => 'Category 1']);
+        $statusOpen = Status::factory()->create(['name' => 'OpenUnique']);
 
         $idea = Idea::factory()->create([
             'title' => 'My First Idea',
             'category_id' => $categoryOne->id,
+            'status_id' => $statusOpen->id,
             'description' => 'Description of my first idea'
         ]);
 
