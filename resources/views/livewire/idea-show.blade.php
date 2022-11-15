@@ -63,7 +63,10 @@
                                     <a
                                         href="#"
                                         class="hover:bg-gray-100 block px-5 py-3"
-                                        @click="$dispatch('custom-show-edit-modal')"
+                                        @click="
+                                            isOpen = false
+                                            $dispatch('custom-show-edit-modal')
+                                        "
                                     >
                                         Edit Idea
                                     </a>
