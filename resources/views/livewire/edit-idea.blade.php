@@ -1,6 +1,8 @@
 <div
-    x-data="{ isOpen: true }"
+    x-cloak
+    x-data="{ isOpen: false }"
     x-show="isOpen"
+    @custom-show-edit-modal.window="isOpen = true"
     @keydown.escape.window="isOpen = false"
     class="relative z-10"
     aria-labelledby="modal-title"
