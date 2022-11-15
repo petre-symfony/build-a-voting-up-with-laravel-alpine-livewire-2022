@@ -19,10 +19,13 @@ class CreateIdea extends Component {
     ];
 
     public function createIdea() {
-        if (auth()->check()) {
-            $this->validate();
+        if (auth()->guest()) {
+            abort(Response::HTTP_FORBIDDEN);
+        }
 
-            Idea::create([
+        $this->validate();
+
+        $idea = Idea::create([
                 'user_id' => auth()->id(),
                 'category_id' => $this->category,
                 'status_id' => '1',
@@ -30,14 +33,21 @@ class CreateIdea extends Component {
                 'description' => $this->description
             ]);
 
-            session()->flash('success_message', 'Idea was added successfully');
+        $idea->vote(auth()->user());
 
-            $this->reset(); //reset the form
+        /**
+            Vote::create([
+            'idea_id' => $idea->id,
+            'user_id' => auth()->id()
+            ]);
+         */
 
-            return $this->redirect(route('idea.index'));
-        }
+        session()->flash('success_message', 'Idea was added successfully');
 
-        abort(Response::HTTP_FORBIDDEN);
+        $this->reset(); //reset the form
+
+        return $this->redirect(route('idea.index'));
+
     }
 
     public function render() {
