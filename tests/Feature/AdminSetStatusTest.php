@@ -22,15 +22,7 @@ class AdminSetStatusTest extends TestCase {
             'email' => 'andre_madaran@hotmail.com'
         ]);
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id
-        ]);
+        $idea = Idea::factory()->create();
 
         $this->actingAs($user)
             ->get(route('idea.show', $idea))
@@ -43,15 +35,7 @@ class AdminSetStatusTest extends TestCase {
             'email' => 'andre@hotmail.com'
         ]);
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id
-        ]);
+        $idea = Idea::factory()->create();
 
         $this->actingAs($user)
             ->get(route('idea.show', $idea))
@@ -64,13 +48,9 @@ class AdminSetStatusTest extends TestCase {
             'email' => 'andre_madaran@hotmail.com'
         ]);
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
+        $statusConsidering = Status::factory()->create(['name' => 'Considering']);
 
         $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusConsidering->id
         ]);
 
@@ -88,14 +68,10 @@ class AdminSetStatusTest extends TestCase {
             'email' => 'andre_madaran@hotmail.com'
         ]);
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
-        $statusInProgress = Status::factory()->create(['id' => 3, 'name' => 'In Progress']);
+        $statusConsidering = Status::factory()->create(['name' => 'Considering']);
+        $statusInProgress = Status::factory()->create(['name' => 'In Progress']);
 
         $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusConsidering->id
         ]);
 
@@ -119,14 +95,10 @@ class AdminSetStatusTest extends TestCase {
             'email' => 'andre_madaran@hotmail.com'
         ]);
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-
-        $statusConsidering = Status::factory()->create(['id' => 2, 'name' => 'Considering']);
-        $statusInProgress = Status::factory()->create(['id' => 3, 'name' => 'In Progress']);
+        $statusConsidering = Status::factory()->create(['name' => 'Considering']);
+        $statusInProgress = Status::factory()->create(['name' => 'In Progress']);
 
         $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
             'status_id' => $statusConsidering->id
         ]);
 

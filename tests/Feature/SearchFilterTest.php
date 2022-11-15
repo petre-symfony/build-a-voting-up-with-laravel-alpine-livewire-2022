@@ -17,36 +17,12 @@ class SearchFilterTest extends TestCase {
 
     /** @test */
     public function searching_works_when_more_than_three_characters(){
-        $user = User::factory()->create();
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categorTwo = Category::factory()->create(['name' => 'Category 2']);
+        $ideaOne = Idea::factory()->create(['title' => 'My First Idea']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
+        $ideaTwo = Idea::factory()->create(['title' => 'My Second Idea']);
 
-        $ideaOne = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        $ideaTwo = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Second Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        $ideaThree = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Third Idea',
-            'description' => 'Description for my first idea'
-        ]);
+        $ideaThree = Idea::factory()->create(['title' => 'My Third Idea']);
 
 
         Livewire::test(IdeasIndex::class)
@@ -59,36 +35,12 @@ class SearchFilterTest extends TestCase {
 
     /** @test */
     public function does_not_perform_search_if_less_than_three_characters(){
-        $user = User::factory()->create();
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categorTwo = Category::factory()->create(['name' => 'Category 2']);
+        $ideaOne = Idea::factory()->create(['title' => 'My First Idea']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
+        $ideaTwo = Idea::factory()->create(['title' => 'My Second Idea']);
 
-        $ideaOne = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        $ideaTwo = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Second Idea',
-            'description' => 'Description for my first idea'
-        ]);
-
-        $ideaThree = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
-            'title' => 'My Third Idea',
-            'description' => 'Description for my first idea'
-        ]);
+        $ideaThree = Idea::factory()->create(['title' => 'My Third Idea']);
 
 
         Livewire::test(IdeasIndex::class)
@@ -100,35 +52,23 @@ class SearchFilterTest extends TestCase {
 
     /** @test */
     public function search_works_correctly_with_category_filters(){
-        $user = User::factory()->create();
 
         $categoryOne = Category::factory()->create(['name' => 'Category 1']);
         $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
 
-        $statusOpen = Status::factory()->create(['name' => 'Open']);
-
         $ideaOne = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My First Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         $ideaTwo = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryOne->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Second Idea',
-            'description' => 'Description for my first idea'
         ]);
 
         $ideaThree = Idea::factory()->create([
-            'user_id' => $user->id,
             'category_id' => $categoryTwo->id,
-            'status_id' => $statusOpen->id,
             'title' => 'My Third Idea',
-            'description' => 'Description for my first idea'
         ]);
 
 
