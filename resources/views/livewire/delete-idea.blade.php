@@ -28,7 +28,7 @@
     <div
         class="fixed inset-0 z-10 overflow-y-auto"
         x-show="isOpen"
-        x-transition.opacity
+        x-transition.opacity.duration.400ms
     >
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <!--
