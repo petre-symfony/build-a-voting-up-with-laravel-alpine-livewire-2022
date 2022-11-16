@@ -71,7 +71,9 @@
                                 class="w-full rounded-xl border-none bg-gray-100 text-sm px-4 py-2"
                                 wire:model.defer="category"
                             >
-                                <option value="1">Category 1</option>
+                                @foreach($categories as @category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                             @error('category')
                             <p class="text-red text-xs mt-1">{{ $message }}</p>
