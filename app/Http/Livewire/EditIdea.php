@@ -19,9 +19,15 @@ class EditIdea extends Component {
         $this->description = $idea->description;
     }
 
+    protected $rules = [
+        'title' => 'required|min:4',
+        'category' => 'required|integer|exists:categories,id',
+        'description' => 'required|min:4',
+    ];
+
     public function updateIdea(){
         #Authorization
-        #Validation
+        $this->validate();
         $this->idea->update([
             'title' => $this->title,
             'category_id' => $this->category,
