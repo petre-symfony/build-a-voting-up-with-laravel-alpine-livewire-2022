@@ -55,7 +55,7 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="text-center text-gray-900 text-lg font-medium">Edit Idea</div>
                     <p class="text-xs text-gray-500 text-center mt-4">You have 1 hour to edit your idea from the time you created it</p>
-                    <form action="" wire:submit.prevent="createIdea" method="POST" class="space-y-4 px-4 py-6">
+                    <form action="" wire:submit.prevent="updateIdea" method="POST" class="space-y-4 px-4 py-6">
                         <div>
                             <input type="text" wire:model.defer="title"
                                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
@@ -113,7 +113,7 @@
                                     transition duration-150 ease-in px-6 py-3
                                 "
                             >
-                                <span class="ml-1">Submit</span>
+                                <span class="ml-1">Update</span>
                             </button>
                         </div>
                     </form>

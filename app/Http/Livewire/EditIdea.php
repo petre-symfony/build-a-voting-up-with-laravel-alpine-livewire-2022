@@ -19,6 +19,16 @@ class EditIdea extends Component {
         $this->description = $idea->description;
     }
 
+    public function updateIdea(){
+        #Authorization
+        #Validation
+        $this->idea->update([
+            'title' => $this->title,
+            'category_id' => $this->category,
+            'description' => $this->description
+        ]);
+    }
+
     public function render() {
         return view('livewire.edit-idea', [
             'categories' => Category::all()
