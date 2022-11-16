@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Idea;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Response;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -82,6 +83,54 @@ class EditIdeaTest extends TestCase {
             'title' => 'My Edited Idea',
             'description' => 'This is my edited idea'
         ]);
+    }
+
+    /** @test */
+    public function editing_an_idea_does_not_work_when_user_has_no_authorization_because_different_user_created_idea() {
+        $user = User::factory()->create();
+        $userB = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $userB->id,
+            'category_id' => $categoryOne->id
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(EditIdea::class, [
+                'idea' => $idea
+            ])
+            ->set('title', 'My Edited Idea')
+            ->set('category', $categoryTwo->id)
+            ->set('description', 'This is my edited idea')
+            ->call('updateIdea')
+            ->assertStatus(Response::HTTP_FORBIDDEN);
+    }
+
+    /** @test */
+    public function editing_an_idea_does_not_work_when_user_has_no_authorization_because_idea_was_created_longer_than_an_hour_ago() {
+        $user = User::factory()->create();
+
+        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
+        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id,
+            'category_id' => $categoryOne->id,
+            'created_at' => now()->subHours(2)
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(EditIdea::class, [
+                'idea' => $idea
+            ])
+            ->set('title', 'My Edited Idea')
+            ->set('category', $categoryTwo->id)
+            ->set('description', 'This is my edited idea')
+            ->call('updateIdea')
+            ->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
     /** @test */
