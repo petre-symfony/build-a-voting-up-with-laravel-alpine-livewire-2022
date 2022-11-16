@@ -7,6 +7,11 @@
     class="relative z-10"
     aria-labelledby="modal-title"
     role="dialog" aria-modal="true"
+    x-init="
+        window.livewire.on('ideaWasUpdated', () => {
+            isOpen = false
+        })
+    "
 >
     <!--
       Background backdrop, show/hide based on modal state.
