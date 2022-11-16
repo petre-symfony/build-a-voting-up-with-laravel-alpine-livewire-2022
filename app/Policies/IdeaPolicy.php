@@ -48,7 +48,7 @@ class IdeaPolicy {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, Idea $idea) {
-        //
+        return $user->id === (int) $idea->user_id;
     }
 
     /**

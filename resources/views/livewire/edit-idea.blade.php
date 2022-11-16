@@ -64,7 +64,7 @@
                         <div>
                             <input type="text" wire:model.defer="title"
                                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
-                               placeholder="Your Idea"
+                               placeholder="Your Idea" required
                             >
                             @error('title')
                             <p class="text-red text-xs mt-1">{{ $message }}</p>

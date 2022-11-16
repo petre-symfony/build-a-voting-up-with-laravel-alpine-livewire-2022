@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Idea;
+use Illuminate\Http\Response;
 use Livewire\Component;
 
 class EditIdea extends Component {
@@ -27,6 +28,9 @@ class EditIdea extends Component {
 
     public function updateIdea(){
         #Authorization
+        if(auth()->guest() || auth()->user()->cannot('update', $this->idea)){
+            abort(Response::HTTP_FORBIDDEN);
+        }
         $this->validate();
         $this->idea->update([
             'title' => $this->title,
