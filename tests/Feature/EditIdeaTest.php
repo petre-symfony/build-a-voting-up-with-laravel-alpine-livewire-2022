@@ -2,19 +2,24 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\EditIdea;
+use App\Models\Idea;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class EditIdeaTest extends TestCase {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example() {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function show_edit_idea_livewire_component_when_user_has_authorization() {
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $this->actingAs($user)
+            ->get(route('idea.show', $idea))
+            ->assertSeeLivewire('edit-idea');
     }
 }
