@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\CreateIdea;
 use App\Http\Livewire\EditIdea;
+use App\Http\Livewire\IdeaShow;
 use App\Models\Category;
 use App\Models\Idea;
 use App\Models\User;
@@ -81,5 +82,35 @@ class EditIdeaTest extends TestCase {
             'title' => 'My Edited Idea',
             'description' => 'This is my edited idea'
         ]);
+    }
+
+    /** @test */
+    public function editing_an_idea_shows_on_menu_when_user_has_authorization() {
+        $user = User::factory()->create();
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeaShow::class, [
+                'idea' => $idea,
+                'votesCount' => 1
+            ])
+            ->assertSee('Edit Idea');
+    }
+
+    /** @test */
+    public function editing_an_idea_dont_show_on_menu_when_user_has_no_authorization() {
+        $user = User::factory()->create();
+
+        $idea = Idea::factory()->create();
+
+        Livewire::actingAs($user)
+            ->test(IdeaShow::class, [
+                'idea' => $idea,
+                'votesCount' => 1
+            ])
+            ->assertDontSee('Edit Idea');
     }
 }
