@@ -49,7 +49,7 @@ class IdeaPolicy {
      */
     public function update(User $user, Idea $idea) {
         return $user->id === (int) $idea->user_id
-            && $idea->created_at->addHour()->isPast();
+            && now()->subHour() <= $idea->created_at;
     }
 
     /**
