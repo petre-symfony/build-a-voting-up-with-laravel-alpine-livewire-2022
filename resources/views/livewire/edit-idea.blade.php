@@ -23,15 +23,14 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
-    <div
-        class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
-        x-show="isOpen"
-        x-transition.opacity
-    >
-    </div>
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto">
-        <div class="flex min-h-screen items-end justify-center">
+        <div
+            class="flex min-h-screen items-end justify-center"
+            x-show="isOpen"
+            x-transition.opacity
+        >
             <!--
               Modal panel, show/hide based on modal state.
 
