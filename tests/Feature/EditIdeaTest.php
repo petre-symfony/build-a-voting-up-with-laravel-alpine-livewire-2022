@@ -22,4 +22,16 @@ class EditIdeaTest extends TestCase {
             ->get(route('idea.show', $idea))
             ->assertSeeLivewire('edit-idea');
     }
+
+    /** @test */
+    public function does_not_show_edit_idea_livewire_component_when_user_does_not_have_authorization() {
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $this->actingAs($user)
+            ->get(route('idea.show', $idea))
+            ->assertSeeLivewire('edit-idea');
+    }
 }
