@@ -64,7 +64,7 @@
                                     <a
                                         href="#"
                                         class="hover:bg-gray-100 block px-5 py-3"
-                                        @click="
+                                        @click.prevent="
                                             isOpen = false
                                             $dispatch('custom-show-edit-modal')
                                         "
@@ -77,7 +77,7 @@
                                     <a
                                         href="#"
                                         class="hover:bg-gray-100 block px-5 py-3"
-                                        @click="
+                                        @click.prevent="
                                             isOpen = false
                                             $dispatch('custom-show-delete-modal')
                                         "
