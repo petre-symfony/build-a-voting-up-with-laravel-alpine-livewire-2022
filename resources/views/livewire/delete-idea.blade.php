@@ -4,7 +4,7 @@
     x-show="isOpen"
     @custom-show-delete-modal.window="
         isOpen = true
-        $refs.confirmButton.focus()
+        $nextTick(() => $refs.confirmButton.focus())
     "
     @keydown.escape.window="isOpen = false"
     x-init="
