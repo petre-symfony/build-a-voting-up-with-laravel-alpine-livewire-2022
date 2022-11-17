@@ -2,7 +2,10 @@
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
-    @custom-show-edit-modal.window="isOpen = true"
+    @custom-show-edit-modal.window="
+        isOpen = true
+        $nextTick(() => $refs.title.focus())
+    "
     @keydown.escape.window="isOpen = false"
     class="relative z-10"
     aria-labelledby="modal-title"
@@ -61,7 +64,7 @@
                     <p class="text-xs text-gray-500 text-center mt-4">You have 1 hour to edit your idea from the time you created it</p>
                     <form action="" wire:submit.prevent="updateIdea" method="POST" class="space-y-4 px-4 py-6">
                         <div>
-                            <input type="text" wire:model.defer="title"
+                            <input type="text" wire:model.defer="title" x-ref="title"
                                class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2 border-none text-sm"
                                placeholder="Your Idea" required
                             >
