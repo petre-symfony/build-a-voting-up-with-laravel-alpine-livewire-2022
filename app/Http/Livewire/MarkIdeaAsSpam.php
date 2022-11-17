@@ -14,8 +14,17 @@ class MarkIdeaAsSpam extends Component {
         $this->idea = $idea;
     }
 
-    public function MarkIdeaAsSpam() {
+    public function markIdeaAsSpam() {
+        #Authorization
+        if(auth()->guest()){
+            abort(Response::HTTP_FORBIDDEN);
+        }
 
+        $this->idea->spam_reports++;
+
+        $this->idea->save();
+
+        $this->emit('ideaWasMarkedAsSpam');
     }
 
     public function render() {
