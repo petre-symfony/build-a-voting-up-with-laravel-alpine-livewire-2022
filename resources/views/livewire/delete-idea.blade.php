@@ -2,7 +2,10 @@
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
-    @custom-show-delete-modal.window="isOpen = true"
+    @custom-show-delete-modal.window="
+        isOpen = true
+        $refs.confirmButton.focus()
+    "
     @keydown.escape.window="isOpen = false"
     x-init="
         window.livewire.on('ideaWasDeleted', () => {
@@ -66,7 +69,19 @@
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button wire:click="deleteIdea" type="button" class="inline-flex w-full justify-center rounded-md border border-transparent bg-blue px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-blue-hover focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm">Delete</button>
+                    <button
+                        wire:click="deleteIdea"
+                        type="button"
+                        x-ref="confirmButton"
+                        class="
+                            inline-flex w-full justify-center rounded-md border
+                            border-transparent bg-blue px-4 py-2 text-base font-medium
+                            text-white shadow-sm hover:bg-blue-hover focus:outline-none
+                            focus:ring-2 focus:ring-blue focus:ring-offset-2 sm:ml-3
+                            sm:w-auto sm:text-sm
+                        "
+
+                    >Delete</button>
                     <button @click="isOpen = false" type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
                 </div>
             </div>
