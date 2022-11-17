@@ -193,11 +193,9 @@
                     </form>
                 </div>
             </div>
-            @auth
-                @if (auth()->user()->isAdmin())
+            @admin
                 <livewire:set-status :idea="$idea"/>
-                @endif
-            @endauth
+            @endadmin
         </div>
         <div class="hidden md:flex items-center space-x-3">
             <div class="bg-white font-semibold text-center rounded-xl px-3 py-2">
