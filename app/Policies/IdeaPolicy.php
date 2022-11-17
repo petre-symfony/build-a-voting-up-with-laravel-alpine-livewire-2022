@@ -60,7 +60,7 @@ class IdeaPolicy {
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, Idea $idea) {
-        return $user->id === (int) $idea->user_id;
+        return $user->id === (int) $idea->user_id || $user->isAdmin();
     }
 
     /**
