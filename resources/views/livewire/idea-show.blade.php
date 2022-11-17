@@ -85,7 +85,17 @@
                                     >Delete Idea</a>
                                 </li>
                                 @endcan
-                                <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
+                                <li>
+                                    <a href="#"
+                                       class="hover:bg-gray-100 block px-5 py-3"
+                                       @click.prevent="
+                                            isOpen = false
+                                            $dispatch('custom-mark-idea-as-spam-modal')
+                                        "
+                                    >
+                                        Mark as spam
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
