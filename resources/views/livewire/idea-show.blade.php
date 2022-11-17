@@ -102,6 +102,21 @@
                                         Mark as spam
                                     </a>
                                 </li>
+                                @admin
+                                    @if ($idea->spam_reports > 0)
+                                        <li>
+                                            <a href="#"
+                                               class="hover:bg-gray-100 block px-5 py-3"
+                                               @click.prevent="
+                                                isOpen = false
+                                                $dispatch('custom-mark-idea-as-not-spam-modal')
+                                            "
+                                            >
+                                                Not Spam
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endadmin
                             </ul>
                         </div>
                         @endauth
