@@ -73,6 +73,7 @@
                                     </a>
                                 </li>
                                 @endcan
+                                @can('delete', $idea)
                                 <li>
                                     <a
                                         href="#"
@@ -81,7 +82,9 @@
                                             isOpen = false
                                             $dispatch('custom-show-delete-modal')
                                         "
-                                    >Delete Idea</a></li>
+                                    >Delete Idea</a>
+                                </li>
+                                @endcan
                                 <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
                             </ul>
                         </div>
