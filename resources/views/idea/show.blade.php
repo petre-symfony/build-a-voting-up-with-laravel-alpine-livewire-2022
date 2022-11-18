@@ -18,6 +18,11 @@
         "
     >
         <div class="font-semibold text-gray-500 text-base">Ideea was updated successfully</div>
+        <button class="text-gray-400 hover:text-gray-500">
+            <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
 
     </div>
 
