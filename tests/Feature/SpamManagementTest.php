@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\DeleteIdea;
 use App\Http\Livewire\IdeaShow;
+use App\Http\Livewire\MarkIdeaAsNotSpam;
 use App\Http\Livewire\MarkIdeaAsSpam;
 use App\Models\Category;
 use App\Models\Idea;
@@ -85,5 +86,82 @@ class SpamManagementTest extends TestCase {
                 'votesCount' => 1
             ])
             ->assertDontSee('Mark as spam');
+    }
+
+    /** @test */
+    public function shows_mark_as_not_spam_livewire_component_when_user_has_authorization() {
+        $user = User::factory()->admin()->create();
+        $idea = Idea::factory()->create([
+            'spam_reports' => 1
+        ]);
+
+
+        $this->actingAs($user)
+            ->get(route('idea.show', $idea))
+            ->assertSeeLivewire('mark-idea-as-not-spam');
+    }
+
+    /** @test */
+    public function does_not_show_mark_as_not_spam_livewire_component_when_user_does_not_have_authorization() {
+        $idea = Idea::factory()->create();
+
+        $this->get(route('idea.show', $idea))
+            ->assertDontSeeLivewire('mark-idea-as-not-spam');
+    }
+
+    /** @test */
+    public function marking_an_idea_as_not_spam_works_when_user_has_authorization() {
+        $user = User::factory()->admin()->create();
+
+        $idea = Idea::factory()->create([
+            'spam_reports' => 1
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(MarkIdeaAsNotSpam::class, [
+                'idea' => $idea
+            ])
+            ->call('markIdeaAsNotSpam')
+            ->assertEmitted('ideaWasMarkedAsNotSpam');
+
+        $this->assertEquals(0, Idea::first()->spam_reports);
+    }
+
+    /** @test */
+    public function marking_an_idea_as_not_spam_does_not_work_when_user_does_not_have_authorization() {
+        $idea = Idea::factory()->create();
+
+        Livewire::test(MarkIdeaAsNotSpam::class, [
+            'idea' => $idea
+        ])
+            ->call('markIdeaAsNotSpam')
+            ->assertStatus(Response::HTTP_FORBIDDEN);
+    }
+
+    /** @test */
+    public function marking_an_idea_as_not_spam_shows_on_menu_when_user_has_authorization() {
+        $user = User::factory()->admin()->create();
+
+        $idea = Idea::factory()->create([
+            'spam_reports' => 1
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeaShow::class, [
+                'idea' => $idea,
+                'votesCount' => 1
+            ])
+            ->assertSee('Not Spam');
+    }
+
+    /** @test */
+    public function marking_an_idea_as_not_spam_dont_show_on_menu_when_user_has_no_authorization() {
+        $idea = Idea::factory()->create();
+
+        Livewire::test(IdeaShow::class, [
+            'idea' => $idea,
+            'votesCount' => 1
+        ])
+            ->assertDontSee('Not Spam');
     }
 }
