@@ -11,7 +11,9 @@
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount"/>
 
     @can('update', $idea)
-    <livewire:edit-idea :idea="$idea"/>
+        @push('modals')
+        <livewire:edit-idea :idea="$idea"/>
+        @endpush
     @endcan
 
     @can('delete', $idea)

@@ -110,6 +110,7 @@
                 <div class="mt-8">{{ $slot }}</div>
             </div>
         </main>
+        @stack('modals')
         @livewireScripts
     </body>
 </html>
