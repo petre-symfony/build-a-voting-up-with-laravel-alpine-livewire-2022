@@ -181,4 +181,20 @@ class SpamManagementTest extends TestCase {
         ])
             ->assertSee('Spam Reports: 3');
     }
+
+    /** @test */
+    public function spam_reports_count_shows_on_ideas_show_page_if_logged_in_as_admin() {
+        $user = User::factory()->admin()->create();
+
+        $idea = Idea::factory()->create([
+            'spam_reports' => 3
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeaShow::class, [
+                'idea' => $idea,
+                'votesCount' => 1
+            ])
+            ->assertSee('Spam Reports: 3');
+    }
 }
