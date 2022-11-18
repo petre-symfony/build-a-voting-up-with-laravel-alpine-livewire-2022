@@ -11,6 +11,15 @@
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount"/>
 
     <div
+        x-cloak
+        x-data="{ isOpen: false }"
+        x-show="isOpen"
+        @keydown.escape.window="isOpen = false"
+        x-init="
+            window.livewire.on('ideaWasUpdated', () => {
+                isOpen = false
+            })
+        "
         class="
             flex justify-between max-w-xs sm:max-w-sm w-full
             fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border
