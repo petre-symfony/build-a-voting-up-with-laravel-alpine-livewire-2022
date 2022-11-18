@@ -1,5 +1,12 @@
 <div x-data="{ isOpen: false }">
-    <button @click="isOpen = !isOpen">Toggle</button>
+    <button
+        @click="
+            isOpen = true
+            setTimeout(() => {
+                isOpen = false
+            }, 5000)
+        "
+    >Toggle</button>
     <div
         x-cloak
         x-show="isOpen"
@@ -31,7 +38,7 @@
 
             <div class="font-semibold text-gray-500 text-sm sm:text-base ml-2">Ideea was updated successfully</div>
         </div>
-        <button class="text-gray-400 hover:text-gray-500">
+        <button @click="isOpen = false" class="text-gray-400 hover:text-gray-500">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
