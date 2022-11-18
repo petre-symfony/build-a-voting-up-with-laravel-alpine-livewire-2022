@@ -63,23 +63,7 @@ class SpamManagementTest extends TestCase {
     }
 
     /** @test */
-    public function deleting_an_idea_shows_on_menu_when_user_has_authorization() {
-        $user = User::factory()->create();
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id
-        ]);
-
-        Livewire::actingAs($user)
-            ->test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 1
-            ])
-            ->assertSee('Delete Idea');
-    }
-
-    /** @test */
-    public function deleting_an_idea_dont_show_on_menu_when_user_has_no_authorization() {
+    public function marking_an_idea_as_spam__shows_on_menu_when_user_has_authorization() {
         $user = User::factory()->create();
 
         $idea = Idea::factory()->create();
@@ -89,6 +73,17 @@ class SpamManagementTest extends TestCase {
                 'idea' => $idea,
                 'votesCount' => 1
             ])
-            ->assertDontSee('Delete Idea');
+            ->assertSee('Mark as spam');
+    }
+
+    /** @test */
+    public function marking_an_idea_as_spam_dont_show_on_menu_when_user_has_no_authorization() {
+        $idea = Idea::factory()->create();
+
+        Livewire::test(IdeaShow::class, [
+                'idea' => $idea,
+                'votesCount' => 1
+            ])
+            ->assertDontSee('Mark as spam');
     }
 }
