@@ -10,6 +10,7 @@ use App\Models\Idea;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Http\Response;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -48,6 +49,17 @@ class SpamManagementTest extends TestCase {
             ->assertEmitted('ideaWasMarkedAsSpam');
 
         $this->assertEquals(1, Idea::first()->spam_reports);
+    }
+
+    /** @test */
+    public function marking_an_idea_as_spam_does_not_work_when_user_does_not_have_authorization() {
+        $idea = Idea::factory()->create();
+
+        Livewire::test(MarkIdeaAsSpam::class, [
+                'idea' => $idea
+            ])
+            ->call('markIdeaAsSpam')
+            ->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
     /** @test */
