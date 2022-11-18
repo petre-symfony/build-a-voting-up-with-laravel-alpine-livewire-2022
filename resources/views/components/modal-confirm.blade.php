@@ -20,7 +20,7 @@
             isOpen = false
         })
     "
-    class="relative z-10"
+    class="relative z-20"
     -labelledby="modal-title"
     role="dialog" aria-modal="true"
 >
