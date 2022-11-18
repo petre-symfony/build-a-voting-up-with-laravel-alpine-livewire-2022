@@ -10,8 +10,15 @@
 
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount"/>
 
-    <div class="fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border px-6 py-5 mx-6 my-8 z-20">
-        Ideea was updated successfully
+    <div
+        class="
+            flex justify-between
+            fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border
+            px-6 py-5 mx-6 my-8 z-20
+        "
+    >
+        <div class="font-semibold text-gray-500 text-base">Ideea was updated successfully</div>
+
     </div>
 
     <x-modals-container :idea="$idea"/>
