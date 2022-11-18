@@ -10,6 +10,10 @@
 
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount"/>
 
+    <div class="fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border px-6 py-5 mx-6 my-8 z-20">
+        Ideea was updated successfully
+    </div>
+
     <x-modals-container :idea="$idea"/>
 
     <div class="comments-container relative space-y-6 md:ml-22 my-8 mt-1 pt-4">
