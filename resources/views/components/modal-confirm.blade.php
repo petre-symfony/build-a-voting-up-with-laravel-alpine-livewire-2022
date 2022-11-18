@@ -1,8 +1,11 @@
+@props([
+    'event-to-open-modal'
+])
 <div
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
-    @custom-show-delete-modal.window="
+    {{ '@'.$eventToOpenModal }}.window="
         isOpen = true
         $nextTick(() => $refs.confirmButton.focus())
     "
