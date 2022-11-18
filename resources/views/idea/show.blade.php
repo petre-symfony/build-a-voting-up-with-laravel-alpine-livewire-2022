@@ -20,7 +20,6 @@
         <div
             class="
                 flex items-center
-                font-semibold text-gray-500 text-base
             "
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-green">
@@ -28,7 +27,7 @@
             </svg>
 
 
-            <span class="ml-2">Ideea was updated successfully</span>
+            <div class="font-semibold text-gray-500 text-sm sm:text-base ml-2">Ideea was updated successfully</div>
         </div>
         <button class="text-gray-400 hover:text-gray-500">
             <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
