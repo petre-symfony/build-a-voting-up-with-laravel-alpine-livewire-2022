@@ -1,5 +1,10 @@
 @props([
-    'event-to-open-modal'
+    'event-to-open-modal',
+    'event-to-close-modal',
+    'modal-title',
+    'modal-description',
+    'modal-confirm-button-text',
+    'wire-click'
 ])
 <div
     x-cloak
@@ -11,7 +16,7 @@
     "
     @keydown.escape.window="isOpen = false"
     x-init="
-        window.livewire.on('ideaWasDeleted', () => {
+        window.livewire.on('{{ $eventToCloseModal }}', () => {
             isOpen = false
         })
     "
@@ -64,16 +69,16 @@
                             </svg>
                         </div>
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">Delete Idea</h3>
+                            <h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">{{ $modalTitle }}</h3>
                             <div class="mt-2">
-                                <p class="text-sm text-gray-500">Are you sure you want to delete this idea? This action cannot be undone.</p>
+                                <p class="text-sm text-gray-500">{{ $modalDescription }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
-                        wire:click="deleteIdea"
+                        wire:click="{{ $wireClick }}"
                         type="button"
                         x-ref="confirmButton"
                         class="
@@ -84,7 +89,7 @@
                             sm:w-auto sm:text-sm
                         "
 
-                    >Delete</button>
+                    >{{ $modalConfirmButtonText }}</button>
                     <button @click="isOpen = false" type="button" class="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">Cancel</button>
                 </div>
             </div>
