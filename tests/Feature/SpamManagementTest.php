@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\DeleteIdea;
+use App\Http\Livewire\IdeaIndex;
 use App\Http\Livewire\IdeaShow;
 use App\Http\Livewire\MarkIdeaAsNotSpam;
 use App\Http\Livewire\MarkIdeaAsSpam;
@@ -163,5 +164,21 @@ class SpamManagementTest extends TestCase {
             'votesCount' => 1
         ])
             ->assertDontSee('Not Spam');
+    }
+
+    /** @test */
+    public function spam_reports_count_shows_on_ideas_index_page_if_logged_in_as_admin() {
+        $user = User::factory()->admin()->create();
+
+        $idea = Idea::factory()->create([
+            'spam_reports' => 3
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeaIndex::class, [
+            'idea' => $idea,
+            'votesCount' => 1
+        ])
+            ->assertSee('Spam Reports: 3');
     }
 }
