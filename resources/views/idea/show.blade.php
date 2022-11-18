@@ -12,7 +12,7 @@
 
     <div
         class="
-            flex justify-between
+            flex justify-between max-w-sm w-full
             fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border
             px-6 py-5 mx-6 my-8 z-20
         "
