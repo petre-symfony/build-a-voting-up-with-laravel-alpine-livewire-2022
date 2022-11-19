@@ -13,6 +13,9 @@ return new class extends Migration {
     public function up() {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('body');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('idea_id')->constrained();
             $table->timestamps();
         });
     }
