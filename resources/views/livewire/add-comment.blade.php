@@ -7,8 +7,9 @@
 
         livewire.hook('message.processed', (message, component) => {
             if(message.updateQueue[0].payload.event === 'commentWasAdded'){
-                const lastComment = document.querySelector('.comment-container:last-child')
-                console.log(lastComment)
+                console.log(message)
+                {{--const lastComment = document.querySelector('.comment-container:last-child')
+                console.log(lastComment) --}}
             }
         })
     "
