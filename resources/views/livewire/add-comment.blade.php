@@ -11,7 +11,7 @@
                 && message.component.fingerprint.name === 'idea-comments'
             ){
                 const lastComment = document.querySelector('.comment-container:last-child')
-                console.log(lastComment)
+                lastComment.scrollIntoView({behaviour: 'smooth'})
             }
         })
     "
