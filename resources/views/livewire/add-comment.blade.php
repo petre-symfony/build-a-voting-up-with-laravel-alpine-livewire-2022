@@ -6,10 +6,12 @@
         })
 
         livewire.hook('message.processed', (message, component) => {
-            if(message.updateQueue[0].payload.event === 'commentWasAdded'){
-                console.log(message)
-                {{--const lastComment = document.querySelector('.comment-container:last-child')
-                console.log(lastComment) --}}
+            if(
+                message.updateQueue[0].payload.event === 'commentWasAdded'
+                && message.component.fingerprint.name === 'idea-comments'
+            ){
+                const lastComment = document.querySelector('.comment-container:last-child')
+                console.log(lastComment)
             }
         })
     "
