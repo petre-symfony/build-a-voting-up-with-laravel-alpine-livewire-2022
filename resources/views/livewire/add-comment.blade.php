@@ -29,7 +29,7 @@
                 <div>
                     <textarea wire:model="comment" required
                         name="post_comment" id="post_comment" cols="10" rows="4"
-                        class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2"
+                        class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-500 border-none px-4 py-2"
                         placeholder="Go ahead, don't be shy, share your thoughts..."
                     ></textarea>
 

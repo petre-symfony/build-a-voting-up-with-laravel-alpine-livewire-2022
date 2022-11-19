@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
 use App\Models\Idea;
 use Illuminate\Http\Response;
 use Livewire\Component;
@@ -24,6 +25,14 @@ class AddComment extends Component {
         }
 
         $this->validate();
+
+        Comment::create([
+           'user_id' => auth()->id(),
+           'idea_id' => $this->idea->id,
+           'body' => $this->comment
+        ]);
+
+        $this->reset('comment');
     }
 
     public function render() {
