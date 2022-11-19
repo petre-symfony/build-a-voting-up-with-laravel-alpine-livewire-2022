@@ -39,7 +39,7 @@
     <div
         class="fixed inset-0 z-10 overflow-y-auto"
         x-show="isOpen"
-        x-transition.opacity.duration.400ms
+        x-transition.opacity.duration.200ms
     >
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <!--
@@ -58,7 +58,7 @@
                     shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg
                 "
                 x-show="isOpen"
-                x-transition.opacity.duration.400ms
+                x-transition.opacity.duration.200ms
             >
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
