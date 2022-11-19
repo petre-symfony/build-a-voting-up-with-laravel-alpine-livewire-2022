@@ -125,9 +125,7 @@
                     }
                 }"
                 x-init="
-                    setTimeout(() => {
-                        showNotification(messageToDisplay)
-                    }, 200)
+                    $nextTick(() => showNotification(messageToDisplay))
                 "
                 x-cloak
                 x-show="isOpen"
