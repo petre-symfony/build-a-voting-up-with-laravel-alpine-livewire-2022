@@ -2,21 +2,21 @@
     <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
         <div>
             <a href="" class="flex-none">
-                <img src="https://source.unsplash.com/200x200/?face&crop=face&v=2" alt="avatar" class="h-14 w-14 rounded-xl">
+                <img src="{{ $comment->user->getAvatar() }}" alt="avatar" class="h-14 w-14 rounded-xl">
             </a>
         </div>
         <div class="md:mx-4 w-full">
             {{--<h4 class="text-xl font-semibold">
                 <a href="" class="hover:underline">A random title can go here</a>
             </h4> --}}
-            <div class="text-gray-600 mt-3 line-clamp-3">
-                Lorem ipsum dolor sit amet
+            <div class="text-gray-600 line-clamp-3">
+                {{ $comment->body }}
             </div>
             <div class="flex items-center justify-between mt-6">
                 <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                    <div class="font-bold text-gray-900">John Doe</div>
+                    <div class="font-bold text-gray-900">{{ $comment->user->name }}</div>
                     <div>&bull;</div>
-                    <div>10 hours ago</div>
+                    <div>{{ $comment->created_at->diffForHumans() }}</div>
                 </div>
                 <div
                     x-data = "{ isOpen: false}"
