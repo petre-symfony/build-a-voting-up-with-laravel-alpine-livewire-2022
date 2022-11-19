@@ -114,7 +114,7 @@
         @if(session('success_message'))
             <div
                 x-data="{
-                    isOpen: true,
+                    isOpen: false,
                     messageToDisplay: '{{ session('success_message') }}',
                     showNotification(message) {
                         this.isOpen = true
@@ -125,7 +125,9 @@
                     }
                 }"
                 x-init="
-                    showNotification(messageToDisplay)
+                    setTimeout(() => {
+                        showNotification(messageToDisplay)
+                    }, 200)
                 "
                 x-cloak
                 x-show="isOpen"
