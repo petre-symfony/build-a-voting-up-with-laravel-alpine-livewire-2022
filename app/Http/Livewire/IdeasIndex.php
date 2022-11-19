@@ -84,6 +84,7 @@ class IdeasIndex extends Component {
                     return $query->where('title', 'like' , '%'.$this->search.'%');
                 })
                 ->withCount('votes')
+                ->withCount('comments')
                 ->addSelect(['voted_by_user' => Vote::select('id')
                     ->where('user_id', auth()->id())
                     ->whereColumn('idea_id', 'ideas.id')
