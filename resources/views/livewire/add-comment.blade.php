@@ -25,17 +25,21 @@
         "
     >
         @auth
-            <form action="" class="space-y-4 px-4 py-6">
+            <form wire:submit.prevent="addComment" action="" class="space-y-4 px-4 py-6">
                 <div>
-                    <textarea
+                    <textarea wire:model="comment"
                         name="post_comment" id="post_comment" cols="10" rows="4"
                         class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-900 border-none px-4 py-2"
                         placeholder="Go ahead, don't be shy, share your thoughts..."
                     ></textarea>
 
+                    @error('comment')
+                        <p class="text-red text-xs mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
                     <div class="flex flex-col md:flex-row items-center md:space-x-3">
                         <button
-                            type="button"
+                            type="submit"
                             class="flex items-center justify-center h-11 w-full md:w-1/2
                                 text-sm text-white bg-blue font-semibold rounded-xl
                                 border border-blue hover:bg-blue-hover
@@ -58,7 +62,7 @@
                             <span class="ml-1">Attach</span>
                         </button>
                     </div>
-                </div>
+
             </form>
         @else
             <div class="px-4 py-6">
