@@ -1,8 +1,12 @@
 <div
-    x-data="{ isOpen: false }"
+    x-data="{
+        isOpen: false,
+        messageToDisplay: ''
+    }"
     x-init="
-        livewire.on('ideaWasUpdated', () => {
+        livewire.on('ideaWasUpdated', (message) => {
             isOpen = true
+            messageToDisplay = message
             setTimeout(() => {
                 isOpen = false
             }, 5000)
@@ -32,7 +36,7 @@
         </svg>
 
 
-        <div class="font-semibold text-gray-500 text-sm sm:text-base ml-2">Ideea was updated successfully</div>
+        <div class="font-semibold text-gray-500 text-sm sm:text-base ml-2" x-text="messageToDisplay"></div>
     </div>
     <button @click="isOpen = false" class="text-gray-400 hover:text-gray-500">
         <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
