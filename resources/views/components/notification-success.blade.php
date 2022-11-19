@@ -1,7 +1,7 @@
 <div
     x-data="{ isOpen: false }"
     x-init="
-        window.livewire.on('ideaWasUpdated', () => {
+        livewire.on('ideaWasUpdated', () => {
             isOpen = true
             setTimeout(() => {
                 isOpen = false

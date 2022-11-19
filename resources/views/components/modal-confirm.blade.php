@@ -16,7 +16,7 @@
     "
     @keydown.escape.window="isOpen = false"
     x-init="
-        window.livewire.on('{{ $eventToCloseModal }}', () => {
+        livewire.on('{{ $eventToCloseModal }}', () => {
             isOpen = false
         })
     "
