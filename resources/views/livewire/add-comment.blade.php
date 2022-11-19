@@ -12,6 +12,10 @@
             ){
                 const lastComment = document.querySelector('.comment-container:last-child')
                 lastComment.scrollIntoView({behaviour: 'smooth'})
+                lastComment.classList.add('bg-green-50')
+                setTimeout(() => {
+                    lastComment.classList.remove('bg-green-50')
+                }, 5000)
             }
         })
     "
