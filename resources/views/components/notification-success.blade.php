@@ -28,6 +28,9 @@
             livewire.on('ideaWasMarkedAsNotSpam', (message) => {
                 showNotification(message)
             })
+            livewire.on('statusWasUpdated', (message) => {
+                showNotification(message)
+            })
         @endif
     "
     x-cloak
