@@ -2,6 +2,8 @@
     x-data = "{ isOpen: false}"
     x-init="
         livewire.on('commentWasAdded', () => {
+            const lastComment = document.querySelector('.comment-container:last-child')
+            console.log(lastComment)
             isOpen = false
         })
     "
