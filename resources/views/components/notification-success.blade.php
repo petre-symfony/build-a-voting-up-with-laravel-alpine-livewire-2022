@@ -1,7 +1,12 @@
+@props([
+    'redirect' => false,
+    'messageToDisplay' => ''
+])
+
 <div
     x-data="{
         isOpen: false,
-        messageToDisplay: '',
+        messageToDisplay: '{{ $messageToDisplay }}',
         showNotification(message) {
             this.isOpen = true
             this.messageToDisplay = message
@@ -11,15 +16,19 @@
         }
     }"
     x-init="
-        livewire.on('ideaWasUpdated', (message) => {
-            showNotification(message)
-        })
-        livewire.on('ideaWasMarkedAsSpam', (message) => {
-            showNotification(message)
-        })
-        livewire.on('ideaWasMarkedAsNotSpam', (message) => {
-            showNotification(message)
-        })
+        @if($redirect)
+            $nextTick(() => showNotification(messageToDisplay))
+        @else
+            livewire.on('ideaWasUpdated', (message) => {
+                showNotification(message)
+            })
+            livewire.on('ideaWasMarkedAsSpam', (message) => {
+                showNotification(message)
+            })
+            livewire.on('ideaWasMarkedAsNotSpam', (message) => {
+                showNotification(message)
+            })
+        @endif
     "
     x-cloak
     x-show="isOpen"
