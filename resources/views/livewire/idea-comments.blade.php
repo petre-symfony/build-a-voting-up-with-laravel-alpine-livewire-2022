@@ -1,4 +1,7 @@
 <div class="comments-container relative space-y-6 md:ml-22 my-8 mt-1 pt-4">
+    @foreach($comments as $comment)
+        <livewire:idea-comment :key="$comment->id" :comment="$comment" />
+    @endforeach
     <div class="comment-container relative bg-white rounded-xl flex mt-4">
         <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
             <div>
