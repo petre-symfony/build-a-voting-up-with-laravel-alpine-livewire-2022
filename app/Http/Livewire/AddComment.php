@@ -11,7 +11,7 @@ class AddComment extends Component {
     public function mount(Idea $idea){
         $this->idea = $idea;
     }
-    
+
     public function render() {
         return view('livewire.add-comment');
     }
