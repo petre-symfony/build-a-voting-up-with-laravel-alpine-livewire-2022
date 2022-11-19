@@ -9,7 +9,7 @@
             {{--<h4 class="text-xl font-semibold">
                 <a href="" class="hover:underline">A random title can go here</a>
             </h4> --}}
-            <div class="text-gray-600 line-clamp-3">
+            <div class="text-gray-600">
                 {{ $comment->body }}
             </div>
             <div class="flex items-center justify-between mt-6">
