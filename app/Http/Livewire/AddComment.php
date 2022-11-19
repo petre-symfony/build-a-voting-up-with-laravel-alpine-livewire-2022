@@ -33,6 +33,8 @@ class AddComment extends Component {
         ]);
 
         $this->reset('comment');
+
+        $this->emit('commentWasAdded', 'Comment was posted!');
     }
 
     public function render() {

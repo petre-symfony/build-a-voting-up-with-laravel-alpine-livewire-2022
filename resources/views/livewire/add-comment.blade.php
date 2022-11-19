@@ -1,5 +1,10 @@
 <div
     x-data = "{ isOpen: false}"
+    x-init="
+        livewire.on('commentWasAdded', () => {
+            isOpen = false
+        })
+    "
     class="relative"
 >
     <button
