@@ -1,29 +1,24 @@
 <div
     x-data="{
         isOpen: false,
-        messageToDisplay: ''
+        messageToDisplay: '',
+        showNotification(message) {
+            this.isOpen = true
+            this.messageToDisplay = message
+            setTimeout(() => {
+                this.isOpen = false
+            }, 5000)
+        }
     }"
     x-init="
         livewire.on('ideaWasUpdated', (message) => {
-            isOpen = true
-            messageToDisplay = message
-            setTimeout(() => {
-                isOpen = false
-            }, 5000)
+            showNotification(message)
         })
         livewire.on('ideaWasMarkedAsSpam', (message) => {
-            isOpen = true
-            messageToDisplay = message
-            setTimeout(() => {
-                isOpen = false
-            }, 5000)
+            showNotification(message)
         })
         livewire.on('ideaWasMarkedAsNotSpam', (message) => {
-            isOpen = true
-            messageToDisplay = message
-            setTimeout(() => {
-                isOpen = false
-            }, 5000)
+            showNotification(message)
         })
     "
     x-cloak
