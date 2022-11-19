@@ -115,7 +115,7 @@
             <div
                 x-data="{
                     isOpen: true,
-                    messageToDisplay: 'fooBar',
+                    messageToDisplay: '{{ session('success_message') }}',
                     showNotification(message) {
                         this.isOpen = true
                         this.messageToDisplay = message
@@ -125,15 +125,7 @@
                     }
                 }"
                 x-init="
-                    livewire.on('ideaWasUpdated', (message) => {
-                        showNotification(message)
-                    })
-                    livewire.on('ideaWasMarkedAsSpam', (message) => {
-                        showNotification(message)
-                    })
-                    livewire.on('ideaWasMarkedAsNotSpam', (message) => {
-                        showNotification(message)
-                    })
+                    showNotification(messageToDisplay)
                 "
                 x-cloak
                 x-show="isOpen"
