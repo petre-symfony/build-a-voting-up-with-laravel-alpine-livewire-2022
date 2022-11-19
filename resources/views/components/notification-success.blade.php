@@ -11,6 +11,20 @@
                 isOpen = false
             }, 5000)
         })
+        livewire.on('ideaWasMarkedAsSpam', (message) => {
+            isOpen = true
+            messageToDisplay = message
+            setTimeout(() => {
+                isOpen = false
+            }, 5000)
+        })
+        livewire.on('ideaWasMarkedAsNotSpam', (message) => {
+            isOpen = true
+            messageToDisplay = message
+            setTimeout(() => {
+                isOpen = false
+            }, 5000)
+        })
     "
     x-cloak
     x-show="isOpen"
