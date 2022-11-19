@@ -8,7 +8,12 @@
     class="relative"
 >
     <button
-        @click="isOpen = !isOpen"
+        @click="
+            isOpen = !isOpen
+            if(isOpen) {
+                $nextTick(() => $refs.comment.focus())
+            }
+        "
         type="button"
         class="flex items-center justify-center h-11 w-32
             text-xs text-white bg-blue font-semibold rounded-xl
@@ -32,7 +37,7 @@
         @auth
             <form wire:submit.prevent="addComment" action="" class="space-y-4 px-4 py-6">
                 <div>
-                    <textarea wire:model="comment" required
+                    <textarea x-ref="comment" wire:model="comment" required
                         name="post_comment" id="post_comment" cols="10" rows="4"
                         class="w-full text-sm bg-gray-100 rounded-xl placeholder-gray-500 border-none px-4 py-2"
                         placeholder="Go ahead, don't be shy, share your thoughts..."
