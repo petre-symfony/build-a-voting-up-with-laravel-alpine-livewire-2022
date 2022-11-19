@@ -1,4 +1,14 @@
-<div x-data="{ isOpen: false }">
+<div
+    x-data="{ isOpen: false }"
+    x-init="
+        window.livewire.on('ideaWasUpdated', () => {
+            isOpen = true
+            setTimeout(() => {
+                isOpen = false
+            }, 5000)
+        })
+    "
+>
     <button
         @click="
             isOpen = true
@@ -17,11 +27,7 @@
         x-transition:leave-start="opacity-100 translate-x-0"
         x-transition:leave-end="opacity-0 translate-x-8"
         @keydown.escape.window="isOpen = false"
-        x-init="
-            window.livewire.on('ideaWasUpdated', () => {
-                isOpen = false
-            })
-        "
+
         class="
             flex justify-between max-w-xs sm:max-w-sm w-full
             fixed bottom-0 right-0 bg-white rounded-xl shadow-lg border
