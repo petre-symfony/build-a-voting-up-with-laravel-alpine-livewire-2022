@@ -6,7 +6,16 @@
         })
 
         livewire.hook('message.processed', (message, component) => {
-            console.log(message)
+            {{--if (
+                message.updateQueue[0].method === 'gotoPage' ||
+                message.updateQueue[0].method === 'nextPage' ||
+                message.updateQueue[0].method === 'previousPage'
+            ) { --}}
+            if(['gotoPage', 'nextPage', 'previousPage'].includes(message.updateQueue[0].method)) {
+                const firstComment = document.querySelector('.comment-container:first-child')
+                firstComment.scrollIntoView({behaviour: 'smooth'})
+            }
+
             if(
                 message.updateQueue[0].payload.event === 'commentWasAdded'
                 && message.component.fingerprint.name === 'idea-comments'
