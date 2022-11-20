@@ -52,7 +52,7 @@
                                     md:ml-8 top-8 md:top-6 right-0 md:left-0 z-10
                                 "
                             >
-
+                                @can('update', $comment)
                                 <li>
                                     <a
                                         href="#"
@@ -66,6 +66,7 @@
                                         Edit Comment
                                     </a>
                                 </li>
+                                @endcan
                                 <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
                                 <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Delete Post</a></li>
                             </ul>
