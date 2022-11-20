@@ -18,4 +18,6 @@
     @endif
 @endadmin
 
-<livewire:edit-comment :idea="$idea"/>
+@auth
+    <livewire:edit-comment />
+@endauth
