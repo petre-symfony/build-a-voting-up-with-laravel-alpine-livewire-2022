@@ -64,4 +64,22 @@ class showCommentsTest extends TestCase {
             ->assertSeeInOrder([$commentOne->body, $commentTwo->body])
             ->assertSee('2 Comments');
     }
+
+    /** @test */
+    public function comments_count_shows_correctly_on_index_page() {
+        $idea = Idea::factory()->create();
+
+        $commentOne = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(5, true)
+        ]);
+
+        $commentTwo = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(5, true)
+        ]);
+
+        $this->get(route('idea.index'))
+            ->assertSee('2 Comments');
+    }
 }
