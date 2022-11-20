@@ -2,10 +2,12 @@
 
 namespace Tests\Feature\Comments;
 
+use App\Http\Livewire\AddComment;
 use App\Models\Idea;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Livewire\Livewire;
 use Tests\TestCase;
 
 class addCommentsTest extends TestCase {
@@ -34,5 +36,22 @@ class addCommentsTest extends TestCase {
 
         $response = $this->get(route('idea.show', $idea));
         $response->assertSee('Please login or create an account to post a comment');
+    }
+
+    /** @test */
+    public function add_comment_form_validation_works() {
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create();
+
+        Livewire::actingAs($user)
+            ->test(AddComment::class, [
+               'idea' => $idea
+            ])
+            ->set('comment', '')
+            ->call('addComment')
+            ->assertHasErrors(['comment'])
+            ->set('comment', 'ab')
+            ->call('addComment')
+            ->assertHasErrors(['comment']);
     }
 }
