@@ -58,9 +58,10 @@
                                         href="#"
                                         class="hover:bg-gray-100 block px-5 py-3"
                                         @click.prevent="
-                                        isOpen = false
-                                        $dispatch('custom-show-edit-modal')
-                                    "
+                                            isOpen = false
+                                            livewire.emit('setEditComment', {{ $comment->id }})
+                                            {{--$dispatch('custom-show-edit-modal') --}}
+                                        "
                                     >
                                         Edit Comment
                                     </a>

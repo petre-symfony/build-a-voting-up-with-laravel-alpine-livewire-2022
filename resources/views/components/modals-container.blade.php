@@ -17,3 +17,5 @@
         <livewire:mark-idea-as-not-spam :idea="$idea"/>
     @endif
 @endadmin
+
+<livewire:edit-comment :idea="$idea"/>
