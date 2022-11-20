@@ -23,6 +23,11 @@ class EditComment extends Component {
 
     public function updateComment(){
         $this->validate();
+
+        $this->comment->body = $this->body;
+        $this->comment->save();
+
+        $this->emit('commentWasUpdated', 'Comment was posted!');
     }
 
     public function render() {

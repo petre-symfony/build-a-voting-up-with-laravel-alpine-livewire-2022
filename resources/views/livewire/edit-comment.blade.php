@@ -11,6 +11,10 @@
     aria-labelledby="modal-title"
     role="dialog" aria-modal="true"
     x-init="
+        livewire.on('commentWasUpdated', () => {
+            isOpen = false
+        })
+
         livewire.on('editCommentWasSet', () => {
             isOpen = true
             $nextTick(() => $refs.editComment.focus())
@@ -64,7 +68,7 @@
                     <div class="text-center text-gray-900 text-lg font-medium">Edit Comment</div>
                     <form action="" wire:submit.prevent="updateComment" method="POST" class="space-y-4 px-4 py-6">
                         <div>
-                            <textarea x-ref="editComment"
+                            <textarea x-ref="editComment" required
                                 name="idea" id="idea" cols="30" rows="4"
                                 class="w-full bg-gray-100 rounded-xl placeholder-gray-500 text-sm px-4 py-2 border-none"
                                 placeholder="Comment this idea"
