@@ -10,12 +10,19 @@ class EditComment extends Component {
     public $body;
 
     protected $listeners = ['setEditComment'];
+    protected $rules = [
+        'body' => 'required|min:4'
+    ];
 
     public function setEditComment($commentId){
         $this->comment = Comment::findOrFail($commentId);
         $this->body = $this->comment->body;
 
         $this->emit('editCommentWasSet');
+    }
+
+    public function updateComment(){
+        $this->validate();
     }
 
     public function render() {
