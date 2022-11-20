@@ -19,9 +19,9 @@ class DeleteComment extends Component {
 
     public function deleteComment(){
         #Authorization
-        //if(auth()->guest() || auth()->user()->cannot('update', $this->comment)){
-        //abort(Response::HTTP_FORBIDDEN);
-        //}
+        if(auth()->guest() || auth()->user()->cannot('delete', $this->comment)){
+            abort(Response::HTTP_FORBIDDEN);
+        }
 
         Comment::destroy($this->comment->id);
 
