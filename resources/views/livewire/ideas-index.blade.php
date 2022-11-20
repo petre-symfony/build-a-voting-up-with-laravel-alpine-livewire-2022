@@ -45,6 +45,6 @@
     </div><!-- end ideas container -->
     <div>
         {{-- {{ $ideas->links() }} --}}
-        {{ $ideas->appends(request()->query())->links() }}
+        {{ $ideas->links() }}
     </div>
 </div>

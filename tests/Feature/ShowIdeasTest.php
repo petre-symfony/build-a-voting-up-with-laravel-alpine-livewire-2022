@@ -38,7 +38,7 @@ class ShowIdeasTest extends TestCase {
         $response->assertSee($ideaOne->title);
         $response->assertSee($ideaOne->description);
         $response->assertSee($categoryOne->name);
-        $response->assertSee(`OpenUnique`);
+        $response->assertSee('OpenUnique');
         $response->assertSee($ideaTwo->title);
         $response->assertSee($ideaTwo->description);
         $response->assertSee($categoryTwo->name);
@@ -68,23 +68,18 @@ class ShowIdeasTest extends TestCase {
 
     /** @test */
     public function ideas_pagination_works(){
-        Idea::factory(Idea::PAGINATION_COUNT + 1)->create();
+        $ideaOne = Idea::factory()->create();
 
-        $ideaOne = Idea::find(1);
-        $ideaOne->title = 'My First Idea';
-        $ideaOne->save();
+        Idea::factory($ideaOne->getPerPage())->create();
 
-        $ideaEleven = Idea::find(11);
-        $ideaEleven->title = 'My Eleventh Idea';
-        $ideaEleven->save();
 
         $response = $this->get('/');
+        $response->assertSee(Idea::find(Idea::count() - 1)->title);
         $response->assertDontSee($ideaOne->title);
-        $response->assertSee($ideaEleven->title);
 
         $response = $this->get('/?page=2');
+        $response->assertDontSee(Idea::find(Idea::count() - 1)->title);
         $response->assertSee($ideaOne->title);
-        $response->assertDontSee($ideaEleven->title);
     }
 
     /** @test */

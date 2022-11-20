@@ -90,7 +90,8 @@ class IdeasIndex extends Component {
                     ->whereColumn('idea_id', 'ideas.id')
                 ])
                 ->orderBy('id', 'desc')
-                ->simplePaginate(Idea::PAGINATION_COUNT),
+                ->simplePaginate()
+                ->withQueryString(),
             'categories' => $categories
         ]);
     }
