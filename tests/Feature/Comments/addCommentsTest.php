@@ -3,6 +3,7 @@
 namespace Tests\Feature\Comments;
 
 use App\Http\Livewire\AddComment;
+use App\Models\Comment;
 use App\Models\Idea;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,6 +13,7 @@ use Tests\TestCase;
 
 class addCommentsTest extends TestCase {
     use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
     public function add_comment_livewire_component_renders() {
@@ -53,5 +55,22 @@ class addCommentsTest extends TestCase {
             ->set('comment', 'ab')
             ->call('addComment')
             ->assertHasErrors(['comment']);
+    }
+
+    /** @test */
+    public function add_comment_form_works() {
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create();
+
+        Livewire::actingAs($user)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment')
+            ->assertEmitted('commentWasAdded');
+
+        $this->assertEquals(1, Comment::count());
+        $this->assertEquals(Comment::all()->first()->body, $idea->comments->first()->body);
     }
 }
