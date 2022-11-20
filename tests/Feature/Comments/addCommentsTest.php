@@ -2,19 +2,19 @@
 
 namespace Tests\Feature\Comments;
 
+use App\Models\Idea;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class addCommentsTest extends TestCase {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example() {
-        $response = $this->get('/');
+    use RefreshDatabase;
 
-        $response->assertStatus(200);
+    /** @test */
+    public function add_comment_livewire_component_renders() {
+        $idea = Idea::factory()->create();
+
+        $response = $this->get(route('idea.show', $idea));
+        $response->assertSeeLivewire('add-comment');
     }
 }
