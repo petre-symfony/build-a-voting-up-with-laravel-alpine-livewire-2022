@@ -4,6 +4,7 @@ namespace Tests\Feature\Comments;
 
 use App\Models\Comment;
 use App\Models\Idea;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -81,5 +82,28 @@ class showCommentsTest extends TestCase {
 
         $this->get(route('idea.index'))
             ->assertSee('2 Comments');
+    }
+
+    /** @test */
+    public function op_badge_shows_if_author_of_idea_comments_on_idea() {
+        $user = User::factory()->create();
+
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $commentOne = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(5, true)
+        ]);
+
+        $commentTwo = Comment::factory()->create([
+            'user_id' => $user->id,
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(5, true)
+        ]);
+
+        $this->get(route('idea.show', $idea))
+            ->assertSee('OP');
     }
 }
