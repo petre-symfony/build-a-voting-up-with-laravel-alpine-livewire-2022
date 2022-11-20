@@ -74,7 +74,7 @@
                                             class="hover:bg-gray-100 block px-5 py-3"
                                             @click.prevent="
                                                 isOpen = false
-                                                livewire.emit('setDeleteComment', {{ $comment->id }}
+                                                livewire.emit('setDeleteComment', {{ $comment->id }})
                                             "
                                         >
                                             Delete Comment
