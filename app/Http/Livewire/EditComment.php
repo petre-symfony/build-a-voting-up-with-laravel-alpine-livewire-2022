@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Comment;
+use Illuminate\Http\Response;
 use Livewire\Component;
 
 class EditComment extends Component {
@@ -22,6 +23,11 @@ class EditComment extends Component {
     }
 
     public function updateComment(){
+        #Authorization
+        if(auth()->guest() || auth()->user()->cannot('update', $this->comment)){
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
         $this->validate();
 
         $this->comment->body = $this->body;
