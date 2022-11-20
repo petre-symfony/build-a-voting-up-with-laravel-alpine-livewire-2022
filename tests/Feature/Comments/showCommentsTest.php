@@ -36,4 +36,12 @@ class showCommentsTest extends TestCase {
         $this->get(route('idea.show', $idea))
             ->assertSeeLivewire('idea-comment');
     }
+
+    /** @test */
+    public function no_comments_shows_appropriate_message() {
+        $idea = Idea::factory()->create();
+
+        $this->get(route('idea.show', $idea))
+            ->assertSee('No comments yet...');
+    }
 }
