@@ -9,7 +9,7 @@
                 />
             @endforeach
             <div class="my-8">
-                {{ $comments->links() }}
+                {{ $comments->onEachSide(1)->links() }}
             </div>
             <!-- <div class="is-admin comment-container relative bg-white rounded-xl flex mt-4">
                 <div class="flex flex-1 px-4 py-6">
