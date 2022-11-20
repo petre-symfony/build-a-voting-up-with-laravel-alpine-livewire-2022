@@ -37,6 +37,9 @@
             livewire.on('commentWasUpdated', (message) => {
                 showNotification(message)
             })
+            livewire.on('commentWasDeleted', (message) => {
+                showNotification(message)
+            })
         @endif
     "
     x-cloak
