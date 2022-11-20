@@ -106,4 +106,32 @@ class showCommentsTest extends TestCase {
         $this->get(route('idea.show', $idea))
             ->assertSee('OP');
     }
+
+    /** @test */
+    public function comments_pagination_works(){
+        $idea = Idea::factory()->create();
+
+        $commentOne = Comment::factory()->create([
+            'idea_id' => $idea->id
+        ]);
+
+        Comment::factory($commentOne->getPerPage())->create([
+            'idea_id' => $idea->id
+        ]);
+
+
+        $response = $this->get(route('idea.show', $idea));
+
+        $response->assertSee($commentOne->body);
+        $response->assertDontSee(Comment::find(Comment::count())->body);
+
+
+        $response = $this->get(route('idea.show', [
+            'idea' => $idea,
+            'page' => 2
+        ]));
+
+        $response->assertDontSee($commentOne->body);
+        $response->assertSee(Comment::find(Comment::count())->body);
+    }
 }
