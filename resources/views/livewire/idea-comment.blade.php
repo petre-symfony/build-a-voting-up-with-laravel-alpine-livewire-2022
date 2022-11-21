@@ -98,6 +98,20 @@
                                         Mark as Spam
                                     </a>
                                 </li>
+                                @admin
+                                    <li>
+                                        <a
+                                            href="#"
+                                            class="hover:bg-gray-100 block px-5 py-3"
+                                            @click.prevent="
+                                            isOpen = false
+                                            livewire.emit('setMarkAsNotSpamComment', {{ $comment->id }})
+                                        "
+                                        >
+                                            Mark as Not Spam
+                                        </a>
+                                    </li>
+                                @endadmin
                             </ul>
                         </div>
                     </div>
