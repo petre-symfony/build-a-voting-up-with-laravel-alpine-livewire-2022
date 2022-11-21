@@ -11,7 +11,7 @@
     x-cloak
     x-data="{ isOpen: false }"
     x-show="isOpen"
-    @if (!$livewireEventToOpenModal)
+    @if ($eventToOpenModal)
         {{ '@'.$eventToOpenModal }}.window="
             isOpen = true
             $nextTick(() => $refs.confirmButton.focus())

@@ -4,16 +4,19 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\IdeasIndex;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Idea;
 use App\Models\Status;
 use App\Models\User;
 use App\Models\Vote;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
 class OtherFiltersTest extends TestCase {
     use RefreshDatabase;
+    use WithFaker;
 
     /** @test */
     public function top_voted_filter_works(){
@@ -171,6 +174,42 @@ class OtherFiltersTest extends TestCase {
                     && $ideas->first()->title === 'My Third Idea'
                     && $ideas->get(1)->title === 'My First Idea'
                     && $ideas->get(2)->title === 'My Second Idea';
+            });
+    }
+
+    /** @test */
+    public function span_comments_test_works(){
+        $user = User::factory()->admin()->create();
+
+        $ideaOne = Idea::factory()->create([
+            'title' => $this->faker->words(5, true)
+        ]);
+
+        $ideaTwo = Idea::factory()->create([
+            'title' => $this->faker->words(5, true)
+        ]);
+
+        $ideaThree = Idea::factory()->create([
+            'title' => $this->faker->words(5, true)
+        ]);
+
+        $commentOne = Comment::factory()->create([
+            'idea_id' => $ideaOne->id,
+            'body' => $this->faker->paragraph(),
+            'spam_reports' => 3
+        ]);
+
+        $commentTwo = Comment::factory()->create([
+            'idea_id' => $ideaTwo->id,
+            'body' => $this->faker->paragraph(),
+            'spam_reports' => 2
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeasIndex::class)
+            ->set('filter', 'Spam Comments')
+            ->assertViewHas('ideas', function($ideas) {
+                return $ideas->count() == 2;
             });
     }
 }

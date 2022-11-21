@@ -71,7 +71,7 @@
                             <textarea x-ref="editComment" required
                                 name="idea" id="idea" cols="30" rows="4"
                                 class="w-full bg-gray-100 rounded-xl placeholder-gray-500 text-sm px-4 py-2 border-none"
-                                placeholder="Comment this idea"
+                                placeholder="Type your comment here"
                                 wire:model.defer="body"
                             ></textarea>
                             @error('body')
