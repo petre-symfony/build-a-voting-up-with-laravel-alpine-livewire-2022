@@ -2,14 +2,11 @@
 
 namespace Tests\Feature\Comments;
 
-use App\Http\Livewire\CreateIdea;
 use App\Http\Livewire\EditComment;
-use App\Http\Livewire\EditIdea;
-use App\Http\Livewire\IdeaShow;
-use App\Models\Category;
-use App\Models\Comment;
+use App\Http\Livewire\IdeaComment;
 use App\Models\Idea;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
@@ -118,57 +115,41 @@ class EditCommentTest extends TestCase {
             ->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
-    /** @test */
-    public function editing_an_idea_does_not_work_when_user_has_no_authorization_because_idea_was_created_longer_than_an_hour_ago() {
-        $user = User::factory()->create();
-
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id,
-            'category_id' => $categoryOne->id,
-            'created_at' => now()->subHours(2)
-        ]);
-
-        Livewire::actingAs($user)
-            ->test(EditIdea::class, [
-                'idea' => $idea
-            ])
-            ->set('title', 'My Edited Idea')
-            ->set('category', $categoryTwo->id)
-            ->set('description', 'This is my edited idea')
-            ->call('updateIdea')
-            ->assertStatus(Response::HTTP_FORBIDDEN);
-    }
 
     /** @test */
-    public function editing_an_idea_shows_on_menu_when_user_has_authorization() {
+    public function editing_a_comment_shows_on_menu_when_user_has_authorization() {
         $user = User::factory()->create();
-
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id
-        ]);
-
-        Livewire::actingAs($user)
-            ->test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 1
-            ])
-            ->assertSee('Edit Idea');
-    }
-
-    /** @test */
-    public function editing_an_idea_dont_show_on_menu_when_user_has_no_authorization() {
-        $user = User::factory()->create();
-
         $idea = Idea::factory()->create();
 
+        $comment = Comment::factory()->create([
+            'user_id' => $user->id,
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(7, true)
+        ]);
+
         Livewire::actingAs($user)
-            ->test(IdeaShow::class, [
-                'idea' => $idea,
-                'votesCount' => 1
+            ->test(IdeaComment::class, [
+                'comment' => $comment,
+                'ideaUserId' => $idea->user_id
             ])
-            ->assertDontSee('Edit Idea');
+            ->assertSee('Edit Comment');
+    }
+
+    /** @test */
+    public function editing_a_comment_dont_show_on_menu_when_user_has_no_authorization() {
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create();
+
+        $comment = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(7, true)
+        ]);
+
+        Livewire::actingAs($user)
+            ->test(IdeaComment::class, [
+                'comment' => $comment,
+                'ideaUserId' => $idea->user_id
+            ])
+            ->assertDontSee('Edit Comment');
     }
 }
