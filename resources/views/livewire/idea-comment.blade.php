@@ -81,7 +81,18 @@
                                         </a>
                                     </li>
                                 @endcan
-                                <li><a href="" class="hover:bg-gray-100 block px-5 py-3">Mark as spam</a></li>
+                                <li>
+                                    <a
+                                        href="#"
+                                        class="hover:bg-gray-100 block px-5 py-3"
+                                        @click.prevent="
+                                        isOpen = false
+                                        livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
+                                    "
+                                    >
+                                        Mark as Spam
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
