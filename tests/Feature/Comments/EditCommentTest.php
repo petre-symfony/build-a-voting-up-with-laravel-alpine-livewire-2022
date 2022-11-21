@@ -57,22 +57,26 @@ class EditCommentTest extends TestCase {
     }
 
     /** @test */
-    public function edit_idea_form_validation_works() {
+    public function edit_comment_form_validation_works() {
         $user = User::factory()->create();
-        $idea = Idea::factory()->create([
-            'user_id' => $user->id
+        $idea = Idea::factory()->create();
+
+        $comment = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'user_id' => $user->id,
+            'body' => $this->faker->words(7, true)
         ]);
 
+
         Livewire::actingAs($user)
-            ->test(EditIdea::class, [
-                'idea' => $idea
-            ])
-            ->set('title', '')
-            ->set('category', '')
-            ->set('description', '')
-            ->call('updateIdea')
-            ->assertHasErrors(['title', 'category', 'description'])
-            ->assertSee('The title field is required');
+            ->test(EditComment::class)
+            ->call('setEditComment', $comment->id)
+            ->set('body', '')
+            ->call('updateComment')
+            ->assertHasErrors('body')
+            ->set('body', 'ab')
+            ->call('updateComment')
+            ->assertHasErrors('body');
     }
 
     /** @test */
