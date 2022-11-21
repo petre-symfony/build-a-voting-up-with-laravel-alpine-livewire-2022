@@ -86,9 +86,9 @@
                                         href="#"
                                         class="hover:bg-gray-100 block px-5 py-3"
                                         @click.prevent="
-                                        isOpen = false
-                                        livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
-                                    "
+                                            isOpen = false
+                                            livewire.emit('setMarkAsSpamComment', {{ $comment->id }})
+                                        "
                                     >
                                         Mark as Spam
                                     </a>
