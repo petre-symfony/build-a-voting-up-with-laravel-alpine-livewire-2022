@@ -80,54 +80,41 @@ class EditCommentTest extends TestCase {
     }
 
     /** @test */
-    public function editing_an_idea_works_when_user_has_authorization() {
+    public function editing_a_comment_works_when_user_has_authorization() {
         $user = User::factory()->create();
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
+        $idea = Idea::factory()->create();
 
-        $idea = Idea::factory()->create([
+        $comment = Comment::factory()->create([
+            'idea_id' => $idea->id,
             'user_id' => $user->id,
-            'category_id' => $categoryOne->id
+            'body' => $this->faker->words(7, true)
         ]);
 
         Livewire::actingAs($user)
-            ->test(EditIdea::class, [
-                'idea' => $idea
-            ])
-            ->set('title', 'My Edited Idea')
-            ->set('category', $categoryTwo->id)
-            ->set('description', 'This is my edited idea')
-            ->call('updateIdea')
-            ->assertEmitted('ideaWasUpdated');
+            ->test(EditComment::class)
+            ->call('setEditComment', $comment->id)
+            ->set('body', 'Updated Comment')
+            ->call('updateComment')
+            ->assertEmitted('commentWasUpdated');
 
-        $this->assertDatabaseHas('ideas', [
-            'category_id' => $categoryTwo->id,
-            'title' => 'My Edited Idea',
-            'description' => 'This is my edited idea'
-        ]);
+        $this->assertEquals('Updated Comment', Comment::first()->body);
     }
 
     /** @test */
-    public function editing_an_idea_does_not_work_when_user_has_no_authorization_because_different_user_created_idea() {
+    public function editing_a_comment_does_not_work_when_user_has_no_authorization_because_different_user_created_comment() {
         $user = User::factory()->create();
-        $userB = User::factory()->create();
+        $idea = Idea::factory()->create();
 
-        $categoryOne = Category::factory()->create(['name' => 'Category 1']);
-        $categoryTwo = Category::factory()->create(['name' => 'Category 2']);
-
-        $idea = Idea::factory()->create([
-            'user_id' => $userB->id,
-            'category_id' => $categoryOne->id
+        $comment = Comment::factory()->create([
+            'idea_id' => $idea->id,
+            'body' => $this->faker->words(7, true)
         ]);
 
         Livewire::actingAs($user)
-            ->test(EditIdea::class, [
-                'idea' => $idea
-            ])
-            ->set('title', 'My Edited Idea')
-            ->set('category', $categoryTwo->id)
-            ->set('description', 'This is my edited idea')
-            ->call('updateIdea')
+            ->test(EditComment::class)
+            ->call('setEditComment', $comment->id)
+            ->set('body', 'Updated Comment')
+            ->call('updateComment')
             ->assertStatus(Response::HTTP_FORBIDDEN);
     }
 
