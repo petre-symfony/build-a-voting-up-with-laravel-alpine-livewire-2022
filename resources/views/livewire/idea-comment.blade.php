@@ -10,6 +10,11 @@
                 <a href="" class="hover:underline">A random title can go here</a>
             </h4> --}}
             <div class="text-gray-600">
+                @admin
+                    @if($comment->spam_reports > 0)
+                        <div class="text-red mb-2">Spam Reports: {{ $comment->spam_reports }}</div>
+                    @endif
+                @endadmin
                 {{ $comment->body }}
             </div>
             <div class="flex items-center justify-between mt-6">
