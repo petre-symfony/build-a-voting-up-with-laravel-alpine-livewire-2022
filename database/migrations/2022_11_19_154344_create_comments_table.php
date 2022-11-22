@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->integer('spam_reports')->default(0);
             $table->boolean('is_status_update')->default(false);
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('status_id')->constrained();
             $table->foreignId('idea_id')->constrained();
             $table->timestamps();
         });
