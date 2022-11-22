@@ -1,4 +1,9 @@
-<div class="comment-container relative bg-white rounded-xl flex transition duration-500 ease-in mt-4">
+<div
+    class="
+        @if($comment->is_status_update) is-status-update @endif comment-container relative bg-white rounded-xl flex transition duration-500
+        ease-in mt-4
+    "
+>
     <div class="flex flex-col md:flex-row flex-1 px-4 py-6">
         <div>
             <a href="" class="flex-none">
@@ -18,11 +23,27 @@
                         <div class="text-red mb-2">Spam Reports: {{ $comment->spam_reports }}</div>
                     @endif
                 @endadmin
-                {{ $comment->body }}
+
+                @if ($comment->is_status_update)
+                    <h4 class="text-xl font-semibold mb-3">
+                        Status Changed to "Under Consideration"
+                    </h4>
+                @endif
+
+                <div>
+                    {{ $comment->body }}
+                </div>
             </div>
             <div class="flex items-center justify-between mt-6">
                 <div class="flex items-center text-xs text-gray-400 font-semibold space-x-2">
-                    <div class="font-bold text-gray-900">{{ $comment->user->name }}</div>
+                    <div
+                        class="
+                            @if ($comment->is_status_update) text-blue @endif
+                            font-bold text-gray-900
+                        "
+                    >
+                        {{ $comment->user->name }}
+                    </div>
                     <div>&bull;</div>
                     @if ($comment->user->id === $ideaUserId)
                         <div class="rounded-full bg-gray-100 border px-3 py-1">OP</div>

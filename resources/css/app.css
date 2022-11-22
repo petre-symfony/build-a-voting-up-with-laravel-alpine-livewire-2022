@@ -33,7 +33,7 @@
     position: absolute;
     display: block;
     top: 60px;
-    left: -41px;
+    left: -40px;
     content: "";
     width: 3px;
     height: calc(100% - 60px);
