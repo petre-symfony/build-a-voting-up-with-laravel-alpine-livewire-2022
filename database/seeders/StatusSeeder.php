@@ -13,8 +13,6 @@ class StatusSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        Status::factory()->create([
-            'classes' => 'bg-gray-200'
-        ]);
+        Status::factory()->create();
     }
 }
