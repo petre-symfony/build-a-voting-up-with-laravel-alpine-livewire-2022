@@ -4,6 +4,9 @@
             <a href="" class="flex-none">
                 <img src="{{ $comment->user->getAvatar() }}" alt="avatar" class="h-14 w-14 rounded-xl">
             </a>
+            @if ($comment->user->isAdmin())
+                <div class="text-center uppercase text-blue text-xxs font-bold mt-1">Admin</div>
+            @endif
         </div>
         <div class="md:mx-4 w-full">
             {{--<h4 class="text-xl font-semibold">
