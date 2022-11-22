@@ -61,3 +61,23 @@
     background-clip: content-box, border-box;
     border-color: transparent;
 }
+
+.status-open:before {
+    @apply bg-gray-200;
+}
+
+.status-considering:before {
+    @apply bg-purple text-white;
+}
+
+.status-in-progress:before {
+    @apply bg-yellow text-white;
+}
+
+.status-implemented:before {
+    @apply bg-green text-white;
+}
+
+.status-closed:before {
+    @apply bg-red text-white;
+}

@@ -1,6 +1,6 @@
 <div
     class="
-        @if($comment->is_status_update) is-status-update @endif comment-container relative bg-white rounded-xl flex transition duration-500
+        @if($comment->is_status_update) is-status-update {{ 'status-'.Str::kebab($comment->status->name) }}@endif comment-container relative bg-white rounded-xl flex transition duration-500
         ease-in mt-4
     "
 >
@@ -26,7 +26,7 @@
 
                 @if ($comment->is_status_update)
                     <h4 class="text-xl font-semibold mb-3">
-                        Status Changed to "Under Consideration"
+                        Status Changed to "{{ $comment->status->name }}"
                     </h4>
                 @endif
 
