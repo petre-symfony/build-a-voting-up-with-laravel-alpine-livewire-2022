@@ -8,7 +8,7 @@
                     :ideaUserId="$idea->user->id"
                 />
             @endforeach
-            <div class="is-admin comment-container relative bg-white rounded-xl flex mt-4">
+            <div class="is-status-update comment-container relative bg-white rounded-xl flex mt-4">
                 <div class="flex flex-1 px-4 py-6">
                     <div>
                         <a href="" class="flex-none">
