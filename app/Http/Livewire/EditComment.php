@@ -33,7 +33,7 @@ class EditComment extends Component {
         $this->comment->body = $this->body;
         $this->comment->save();
 
-        $this->emit('commentWasUpdated', 'Comment was posted!');
+        $this->emit('commentWasUpdated', 'Comment was updated!');
     }
 
     public function render() {
