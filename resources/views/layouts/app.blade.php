@@ -43,7 +43,7 @@
                                         <div
                                             class="
                                                 absolute rounded-full bg-red text-white text-xxs w-6 h-6
-                                                flex justify-center items-center
+                                                flex justify-center items-center top-0 right-0
                                             "
                                         >8</div>
                                     </button>
