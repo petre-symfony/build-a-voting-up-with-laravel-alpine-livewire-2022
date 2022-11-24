@@ -63,12 +63,17 @@
                                         <li>
                                             <a
                                                 href="#"
-                                                class="hover:bg-gray-100 block px-5 py-3"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
                                                 @click.prevent="
                                                     isOpen = false
                                                 "
                                             >
-                                                Edit Idea
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>Content</div>
+                                                    <div>1 hour ago</div>
+                                                </div>
                                             </a>
                                         </li>
                                     </ul>
