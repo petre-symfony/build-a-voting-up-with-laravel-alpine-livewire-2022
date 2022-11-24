@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Comment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -10,13 +11,15 @@ use Illuminate\Notifications\Notification;
 class CommentAdded extends Notification {
     use Queueable;
 
+    public $comment;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct() {
-        //
+    public function __construct(Comment $comment) {
+       $this->comment = $comment;
     }
 
     /**
@@ -36,7 +39,12 @@ class CommentAdded extends Notification {
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable) {
-        return (new MailMessage)->markdown('emails.comment-added');
+        return (new MailMessage)
+            ->subject('Laracasts voting: A comment was posted on your idea')
+            ->markdown('emails.comment-added', [
+                'comment' => $this->comment,
+                'url' => route('idea.show', $this->comment->idea)
+            ]);
     }
 
     /**

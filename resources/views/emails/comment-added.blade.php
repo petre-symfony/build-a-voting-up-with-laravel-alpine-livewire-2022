@@ -1,10 +1,14 @@
 <x-mail::message>
-# Introduction
+# A comment was posted on your idea
 
-The body of your message.
+{{ $comment->user->name }} commented on your idea
 
-<x-mail::button :url="''">
-Button Text
+**{{ $comment->idea->title }}**
+
+Comment: {{ $comment->body }}
+
+<x-mail::button :url="$url">
+Go to idea
 </x-mail::button>
 
 Thanks,<br>
