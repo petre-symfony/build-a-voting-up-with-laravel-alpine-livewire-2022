@@ -29,7 +29,7 @@ class CommentAdded extends Notification {
      * @return array
      */
     public function via($notifiable) {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
