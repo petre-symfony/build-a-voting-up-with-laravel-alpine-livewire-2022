@@ -55,7 +55,7 @@
                                         @click.away="isOpen=false"
                                         @keydown.escape.window="isOpen = false"
                                         class="
-                                            absolute w-76 md:w-96 text-left ml-8 bg-white
+                                            absolute w-76 md:w-96 text-left text-sm ml-8 bg-white
                                             shadow-dialog rounded-xl py-3 z-10
                                         "
                                         style="right: -46px"
@@ -73,7 +73,7 @@
                                                 <div class="ml-4">
                                                     <div>
                                                         <span class="font-semibold">drehsem</span>
-                                                        commented on 
+                                                        commented on
                                                         <span class="font-semibold">This is my idea</span>:
                                                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?</span>
                                                     </div>
