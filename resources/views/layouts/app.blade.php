@@ -56,7 +56,7 @@
                                         @keydown.escape.window="isOpen = false"
                                         class="
                                             absolute w-76 md:w-96 text-left text-sm ml-8 bg-white
-                                            shadow-dialog rounded-xl py-3 z-10
+                                            shadow-dialog rounded-xl py-3 z-10 max-h-128
                                         "
                                         style="right: -46px"
                                     >
