@@ -55,7 +55,13 @@ class CommentAdded extends Notification {
      */
     public function toArray($notifiable) {
         return [
-            //
+            'comment_id' => $this->comment->id,
+            'comment_body' => $this->comment->id,
+            'user_avatar' => $this->comment->user->getAvatar(),
+            'user_name' => $this->comment->user->name,
+            'idea_id' => $this->comment->idea->id,
+            'idea_slug' => $this->comment->idea->slug,
+            'idea_title' => $this->comment->idea->title
         ];
     }
 }
