@@ -57,8 +57,9 @@
                                         class="
                                             absolute w-44 text-left ml-8 font-semibold bg-white
                                             shadow-dialog rounded-xl py-3
-                                            md:ml-8 top-8 md:top-6 right-0 md:left-0 z-10
+                                            md:ml-8 top-8 md:top-6 z-10
                                         "
+                                        style="right: -46px"
                                     >
                                         <li>
                                             <a
