@@ -75,9 +75,9 @@
                                                         <span class="font-semibold">drehsem</span>
                                                         commented on
                                                         <span class="font-semibold">This is my idea</span>:
-                                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?</span>
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
                                                     </div>
-                                                    <div>1 hour ago</div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
                                                 </div>
                                             </a>
                                         </li>
