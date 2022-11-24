@@ -252,7 +252,7 @@
                                         <li class="border-t border-gray-300 text-center">
                                             <a
                                                 href="#"
-                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                class="block font-semibold hover:bg-gray-100 px-5 py-3"
                                             >
                                                 Mark all as red
                                             </a>
