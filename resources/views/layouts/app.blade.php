@@ -252,7 +252,7 @@
                                         <li class="border-t border-gray-300 text-center">
                                             <button
                                                 href="#"
-                                                class="block font-semibold hover:bg-gray-100 px-5 py-4"
+                                                class="w-full font-semibold hover:bg-gray-100 px-5 py-4"
                                             >
                                                 Mark all as red
                                             </button>
