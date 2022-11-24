@@ -81,6 +81,174 @@
                                                 </div>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="#"
+                                                class="flex hover:bg-gray-100 px-5 py-3"
+                                                @click.prevent="
+                                                    isOpen = false
+                                                "
+                                            >
+                                                <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
+                                                     class="rounded-xl w-10 h-10" alt="">
+                                                <div class="ml-4">
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                    </div>
+                                                    <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
+                                                </div>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
