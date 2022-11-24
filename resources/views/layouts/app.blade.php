@@ -55,7 +55,7 @@
                                         @click.away="isOpen=false"
                                         @keydown.escape.window="isOpen = false"
                                         class="
-                                            absolute w-76 md:w-96 text-left ml-8 font-semibold bg-white
+                                            absolute w-76 md:w-96 text-left ml-8 bg-white
                                             shadow-dialog rounded-xl py-3 z-10
                                         "
                                         style="right: -46px"
@@ -71,7 +71,12 @@
                                                 <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
                                                      class="rounded-xl w-10 h-10" alt="">
                                                 <div class="ml-4">
-                                                    <div>Content</div>
+                                                    <div>
+                                                        <span class="font-semibold">drehsem</span>
+                                                        commented on 
+                                                        <span class="font-semibold">This is my idea</span>:
+                                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?</span>
+                                                    </div>
                                                     <div>1 hour ago</div>
                                                 </div>
                                             </a>
