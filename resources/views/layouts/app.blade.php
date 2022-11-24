@@ -71,11 +71,11 @@
                                                 <img src="https://www.gravatar.com/avatar/c6ad550c8f30082474d1e58d20f67b3a"
                                                      class="rounded-xl w-10 h-10" alt="">
                                                 <div class="ml-4">
-                                                    <div>
+                                                    <div class="line-clamp-6">
                                                         <span class="font-semibold">drehsem</span>
                                                         commented on
                                                         <span class="font-semibold">This is my idea</span>:
-                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit?"</span>
+                                                        <span>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, suscipit? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias architecto doloremque fugit laudantium nostrum nulla quidem quisquam quos recusandae voluptate."</span>
                                                     </div>
                                                     <div class="text-xs text-gray-500 mt-2">1 hour ago</div>
                                                 </div>
