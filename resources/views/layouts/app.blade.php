@@ -48,8 +48,8 @@
                                             class="
                                                 absolute rounded-full bg-red text-white text-xxs w-6 h-6
                                                 flex justify-center items-center border-2
+                                                -top-1 -right-1
                                             "
-                                            style="top: -6px; right: -6px"
                                         >8</div>
                                     </button>
                                     <ul
@@ -61,8 +61,8 @@
                                         class="
                                             absolute w-76 md:w-96 text-left text-sm ml-8 bg-white
                                             shadow-dialog rounded-xl z-10 max-h-128 overflow-y-auto
+                                            -right-28 md:-right-12
                                         "
-                                        style="right: -46px"
                                     >
                                         <li>
                                             <a
