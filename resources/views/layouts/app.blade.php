@@ -250,12 +250,12 @@
                                             </a>
                                         </li>
                                         <li class="border-t border-gray-300 text-center">
-                                            <a
+                                            <button
                                                 href="#"
-                                                class="block font-semibold hover:bg-gray-100 px-5 py-3"
+                                                class="block font-semibold hover:bg-gray-100 px-5 py-4"
                                             >
                                                 Mark all as red
-                                            </a>
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
