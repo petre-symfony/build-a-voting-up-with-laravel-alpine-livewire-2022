@@ -55,7 +55,7 @@
                                         @click.away="isOpen=false"
                                         @keydown.escape.window="isOpen = false"
                                         class="
-                                            absolute w-44 text-left ml-8 font-semibold bg-white
+                                            absolute w-76 md:w-96 text-left ml-8 font-semibold bg-white
                                             shadow-dialog rounded-xl py-3
                                             md:ml-8 top-8 md:top-6 z-10
                                         "
