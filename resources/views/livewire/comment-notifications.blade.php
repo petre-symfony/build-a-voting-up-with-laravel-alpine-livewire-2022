@@ -67,7 +67,7 @@
             </li>
         @elseif($isLoading)
             @foreach(range(1,3) as $item)
-                <li class="flex items-center transition duration-150 ease-in px-5 py-3">
+                <li class="animate-pulse flex items-center transition duration-150 ease-in px-5 py-3">
                     <div class="bg-gray-200 rounded-xl w-10 h-10"></div>
                     <div class="flex-1 ml-4 space-y-4">
                         <div class="bg-gray-200 w-full rounded h-4"></div>

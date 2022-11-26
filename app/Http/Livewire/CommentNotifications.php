@@ -19,7 +19,6 @@ class CommentNotifications extends Component {
     }
 
     public function getNotifications(){
-        sleep(5);
         $this->notifications = auth()->user()
             ->unreadNotifications()
             ->latest()
