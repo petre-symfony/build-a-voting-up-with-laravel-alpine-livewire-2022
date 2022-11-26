@@ -35,7 +35,7 @@
                                         {{ __('Log Out') }}
                                     </a>
                                 </form>
-                                
+
                                 <livewire:comment-notifications />
                             </div>
                         @else
