@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Comment;
 use Illuminate\Http\Response;
 use Illuminate\Notifications\DatabaseNotification;
 use Livewire\Component;
@@ -57,6 +58,10 @@ class CommentNotifications extends Component {
 
         $notification = DatabaseNotification::findOrFail($notificationId);
         $notification->markAsRead();
+
+        $comment = Comment::find($notification->data['comment_id']);
+
+        session()->flash('scrollToComment', $comment->id);
 
         return redirect()->route('idea.show', [
             'idea' => $notification->data['idea_slug']
