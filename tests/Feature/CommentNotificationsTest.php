@@ -94,4 +94,74 @@ class CommentNotificationsTest extends TestCase {
             ->assertSee($threshold.'+')
         ;
     }
+
+    /** @test */
+    public function can_mark_all_notifications_as_read(){
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $userACommenting = User::factory()->create();
+        $userBCommenting = User::factory()->create();
+
+        Livewire::actingAs($userACommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+
+        Livewire::actingAs($userBCommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+        Livewire::actingAs($user)
+            ->test(CommentNotifications::class)
+            ->call('getNotifications')
+            ->call('markAllAsRead');
+
+        $this->assertEquals(0, $user->fresh()->unreadNotifications->count());
+    }
+
+    /** @test */
+    public function can_mark_individual_notification_as_read(){
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $userACommenting = User::factory()->create();
+        $userBCommenting = User::factory()->create();
+
+        Livewire::actingAs($userACommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+
+        Livewire::actingAs($userBCommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+        Livewire::actingAs($user)
+            ->test(CommentNotifications::class)
+            ->call('getNotifications')
+            ->call('markAsRead', DatabaseNotification::first()->id)
+            ->assertRedirect(route('idea.show', [
+                'idea' => $idea,
+                'page' => 1
+            ]));
+
+        $this->assertEquals(1, $user->fresh()->unreadNotifications->count());
+    }
 }
