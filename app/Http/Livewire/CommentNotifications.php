@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 
 class CommentNotifications extends Component {
+    const NOTIFICATION_THRESHOLD = 20;
     public $notifications;
     public $notificationCount;
 
@@ -21,6 +22,10 @@ class CommentNotifications extends Component {
 
     public function getNotificationCount() {
         $this->notificationCount = auth()->user()->unreadNotifications()->count();
+
+        if ($this->notificationCount > self::NOTIFICATION_THRESHOLD) {
+            $this->notificationCount = self::NOTIFICATION_THRESHOLD . '+';
+        }
     }
 
     public function render() {
