@@ -19,7 +19,7 @@
                 flex justify-center items-center border-2
                 -top-1 -right-1
             "
-        >8</div>
+        >{{ $notificationCount }}</div>
     </button>
     <ul
         x-cloak
