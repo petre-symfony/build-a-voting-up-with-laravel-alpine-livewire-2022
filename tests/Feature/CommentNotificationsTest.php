@@ -164,4 +164,55 @@ class CommentNotificationsTest extends TestCase {
 
         $this->assertEquals(1, $user->fresh()->unreadNotifications->count());
     }
+
+    /** @test */
+    public function notification_idea_deleted_redirects_to_index_page(){
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $userACommenting = User::factory()->create();
+
+        Livewire::actingAs($userACommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+        $idea->comments()->delete();
+        $idea->delete();
+
+        Livewire::actingAs($user)
+            ->test(CommentNotifications::class)
+            ->call('getNotifications')
+            ->call('markAsRead', DatabaseNotification::first()->id)
+            ->assertRedirect(route('idea.index'));
+    }
+
+    /** @test */
+    public function notification_comment_deleted_redirects_to_index_page(){
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $userACommenting = User::factory()->create();
+
+        Livewire::actingAs($userACommenting)
+            ->test(AddComment::class, [
+                'idea' => $idea
+            ])
+            ->set('comment', $this->faker->words(5, true))
+            ->call('addComment');
+
+        $idea->comments()->delete();
+
+        Livewire::actingAs($user)
+            ->test(CommentNotifications::class)
+            ->call('getNotifications')
+            ->call('markAsRead', DatabaseNotification::first()->id)
+            ->assertRedirect(route('idea.index'));
+    }
 }
