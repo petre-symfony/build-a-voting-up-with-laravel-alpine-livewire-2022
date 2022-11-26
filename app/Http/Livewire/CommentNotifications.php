@@ -75,7 +75,7 @@ class CommentNotifications extends Component {
 
             return redirect()->route('idea.index');
         }
-        
+
         $comments = $idea->comments()->pluck('id');
         $indexOfComment = $comments->search($comment->id);
 
