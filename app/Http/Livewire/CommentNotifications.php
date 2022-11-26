@@ -44,6 +44,8 @@ class CommentNotifications extends Component {
         }
 
         auth()->user()->unreadNotifications->markAsRead();
+        $this->getNotificationCount();
+        $this->getNotifications();
     }
 
     public function render() {
