@@ -35,34 +35,41 @@
             -right-28 md:-right-12
         "
     >
-        @foreach($notifications as $notification)
-            <li>
-                <a
-                    href="{{ route('idea.show', $notification->data['idea_slug']) }}"
-                    class="flex hover:bg-gray-100 px-5 py-3"
-                    {{--@click.prevent="isOpen = false" --}}
-                >
-                    <img src="{{ $notification->data['user_avatar'] }}"
-                         class="rounded-xl w-10 h-10" alt="">
-                    <div class="ml-4">
-                        <div class="line-clamp-6">
-                            <span class="font-semibold">{{ $notification->data['user_name'] }}</span>
-                            commented on
-                            <span class="font-semibold">{{ $notification->data['idea_title'] }}</span>:
-                            <span>{{ $notification->data['comment_body'] }}</span>
+        @if($notifications->isNotEmpty())
+            @foreach($notifications as $notification)
+                <li>
+                    <a
+                        href="{{ route('idea.show', $notification->data['idea_slug']) }}"
+                        class="flex hover:bg-gray-100 px-5 py-3"
+                        {{--@click.prevent="isOpen = false" --}}
+                    >
+                        <img src="{{ $notification->data['user_avatar'] }}"
+                             class="rounded-xl w-10 h-10" alt="">
+                        <div class="ml-4">
+                            <div class="line-clamp-6">
+                                <span class="font-semibold">{{ $notification->data['user_name'] }}</span>
+                                commented on
+                                <span class="font-semibold">{{ $notification->data['idea_title'] }}</span>:
+                                <span>{{ $notification->data['comment_body'] }}</span>
+                            </div>
+                            <div class="text-xs text-gray-500 mt-2">{{ $notification->created_at->diffForHumans() }}</div>
                         </div>
-                        <div class="text-xs text-gray-500 mt-2">{{ $notification->created_at->diffForHumans() }}</div>
-                    </div>
-                </a>
+                    </a>
+                </li>
+            @endforeach
+            <li class="border-t border-gray-300 text-center">
+                <button
+                    href="#"
+                    class="w-full font-semibold hover:bg-gray-100 px-5 py-4"
+                >
+                    Mark All as Read
+                </button>
             </li>
-        @endforeach
-        <li class="border-t border-gray-300 text-center">
-            <button
-                href="#"
-                class="w-full font-semibold hover:bg-gray-100 px-5 py-4"
-            >
-                Mark All as Read
-            </button>
-        </li>
+        @else
+            <li class="mx-auto w-40 py-6">
+                <img src="{{ asset('img/no-ideas.svg') }}" alt="No ideas" class="mx-auto" style="mix-blend-mode: luminosity">
+                <div class="text-gray-400 text-center font-bold mt-6">No new notifications</div>
+            </li>
+        @endif
     </ul>
 </div>
