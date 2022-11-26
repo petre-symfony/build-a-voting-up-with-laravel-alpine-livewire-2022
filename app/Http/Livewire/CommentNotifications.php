@@ -17,7 +17,11 @@ class CommentNotifications extends Component {
     }
 
     public function getNotifications(){
-        $this->notifications = auth()->user()->unreadNotifications;
+        $this->notifications = auth()->user()
+            ->unreadNotifications()
+            ->latest()
+            ->take(self::NOTIFICATION_THRESHOLD)
+            ->get();;
     }
 
     public function getNotificationCount() {
