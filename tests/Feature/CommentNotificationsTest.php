@@ -8,6 +8,7 @@ use App\Models\Idea;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Notifications\DatabaseNotification;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -57,6 +58,8 @@ class CommentNotificationsTest extends TestCase {
             ])
             ->set('comment', $this->faker->words(5, true))
             ->call('addComment');
+
+        DatabaseNotification::first()->update(['created_at' => now()->subMinute()]);
 
         Livewire::actingAs($user)
             ->test(CommentNotifications::class)
