@@ -57,6 +57,10 @@ class CommentNotifications extends Component {
 
         $notification = DatabaseNotification::findOrFail($notificationId);
         $notification->markAsRead();
+
+        return redirect()->route('idea.show', [
+            'idea' => $notification->data['idea_slug']
+        ]);
     }
 
     public function render() {
