@@ -59,7 +59,8 @@
             @endforeach
             <li class="border-t border-gray-300 text-center">
                 <button
-                    href="#"
+                    wire:click="markAllAsRead"
+                    @click="isOpen=false"
                     class="w-full font-semibold hover:bg-gray-100 px-5 py-4"
                 >
                     Mark All as Read

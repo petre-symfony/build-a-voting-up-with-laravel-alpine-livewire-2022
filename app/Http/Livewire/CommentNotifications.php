@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Response;
 use Livewire\Component;
 
 class CommentNotifications extends Component {
@@ -34,6 +35,15 @@ class CommentNotifications extends Component {
         if ($this->notificationCount > self::NOTIFICATION_THRESHOLD) {
             $this->notificationCount = self::NOTIFICATION_THRESHOLD . '+';
         }
+    }
+
+    public function markAllAsRead(){
+        #Authorization
+        if(auth()->guest()){
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
+        auth()->user()->unreadNotifications->markAsRead();
     }
 
     public function render() {
