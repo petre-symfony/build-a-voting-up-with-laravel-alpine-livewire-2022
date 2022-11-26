@@ -61,8 +61,21 @@ class CommentNotifications extends Component {
         $notification->markAsRead();
 
         $idea = Idea::find($notification->data['idea_id']);
+
+        if(!$idea) {
+            session()->flash('error_message', 'This idea no longer exists');
+
+            return redirect()->route('idea.index');
+        }
+
         $comment = Comment::find($notification->data['comment_id']);
 
+        if(!$comment) {
+            session()->flash('error_message', 'This comment no longer exists');
+
+            return redirect()->route('idea.index');
+        }
+        
         $comments = $idea->comments()->pluck('id');
         $indexOfComment = $comments->search($comment->id);
 
