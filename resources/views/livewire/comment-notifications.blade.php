@@ -41,7 +41,8 @@
                     <a
                         href="{{ route('idea.show', $notification->data['idea_slug']) }}"
                         class="flex hover:bg-gray-100 px-5 py-3"
-                        {{--@click.prevent="isOpen = false" --}}
+                        @click.prevent="isOpen = false"
+                        wire:click.prevent="markAsRead('{{ $notification->id }}')"
                     >
                         <img src="{{ $notification->data['user_avatar'] }}"
                              class="rounded-xl w-10 h-10" alt="">

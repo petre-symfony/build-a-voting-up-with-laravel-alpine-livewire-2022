@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Illuminate\Http\Response;
+use Illuminate\Notifications\DatabaseNotification;
 use Livewire\Component;
 
 class CommentNotifications extends Component {
@@ -46,6 +47,16 @@ class CommentNotifications extends Component {
         auth()->user()->unreadNotifications->markAsRead();
         $this->getNotificationCount();
         $this->getNotifications();
+    }
+
+    public function markAsRead($notificationId){
+        #Authorization
+        if(auth()->guest()){
+            abort(Response::HTTP_FORBIDDEN);
+        }
+
+        $notification = DatabaseNotification::findOrFail($notificationId);
+        $notification->markAsRead();
     }
 
     public function render() {
