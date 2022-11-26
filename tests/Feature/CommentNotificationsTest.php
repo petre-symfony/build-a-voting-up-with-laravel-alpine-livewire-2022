@@ -67,4 +67,31 @@ class CommentNotificationsTest extends TestCase {
             ->assertSeeInOrder([$userBCommenting->comments()->first()->body, $userACommenting->comments()->first()->body])
         ;
     }
+
+    /** @test */
+    public function notification_count_greater_than_threshold_shows_for_logged_in_user(){
+        $user = User::factory()->create();
+        $idea = Idea::factory()->create([
+            'user_id' => $user->id
+        ]);
+
+        $userACommenting = User::factory()->create();
+        $threshold = CommentNotifications::NOTIFICATION_THRESHOLD;
+
+        foreach(range(1, $threshold + 1) as $item){
+            Livewire::actingAs($userACommenting)
+                ->test(AddComment::class, [
+                    'idea' => $idea
+                ])
+                ->set('comment', $this->faker->words(5, true))
+                ->call('addComment');
+        }
+
+        Livewire::actingAs($user)
+            ->test(CommentNotifications::class)
+            ->call('getNotifications')
+            ->assertSet('notificationCount', $threshold.'+')
+            ->assertSee($threshold.'+')
+        ;
+    }
 }
