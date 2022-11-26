@@ -35,7 +35,7 @@
             -right-28 md:-right-12
         "
     >
-        @if($notifications->isNotEmpty())
+        @if($notifications->isNotEmpty()  && !$isLoading )
             @foreach($notifications as $notification)
                 <li>
                     <a
@@ -65,6 +65,17 @@
                     Mark All as Read
                 </button>
             </li>
+        @elseif($isLoading)
+            @foreach(range(1,3) as $item)
+                <li class="flex items-center transition duration-150 ease-in px-5 py-3">
+                    <div class="bg-gray-200 rounded-xl w-10 h-10"></div>
+                    <div class="flex-1 ml-4 space-y-4">
+                        <div class="bg-gray-200 w-full rounded h-4"></div>
+                        <div class="bg-gray-200 w-full rounded h-4"></div>
+                        <div class="bg-gray-200 w-1/2 rounded h-4"></div>
+                    </div>
+                </li>
+            @endforeach
         @else
             <li class="mx-auto w-40 py-6">
                 <img src="{{ asset('img/no-ideas.svg') }}" alt="No ideas" class="mx-auto" style="mix-blend-mode: luminosity">

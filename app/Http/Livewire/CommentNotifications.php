@@ -8,20 +8,25 @@ class CommentNotifications extends Component {
     const NOTIFICATION_THRESHOLD = 20;
     public $notifications;
     public $notificationCount;
+    public $isLoading;
 
     protected $listeners = ['getNotifications'];
 
     public function mount(){
         $this->notifications = collect([]);
         $this->getNotificationCount();
+        $this->isLoading = true;
     }
 
     public function getNotifications(){
+        sleep(5);
         $this->notifications = auth()->user()
             ->unreadNotifications()
             ->latest()
             ->take(self::NOTIFICATION_THRESHOLD)
-            ->get();;
+            ->get();
+
+        $this->isLoading = false;
     }
 
     public function getNotificationCount() {
