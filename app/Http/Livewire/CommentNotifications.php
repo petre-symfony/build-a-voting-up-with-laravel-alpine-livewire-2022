@@ -60,6 +60,10 @@ class CommentNotifications extends Component {
         $notification = DatabaseNotification::findOrFail($notificationId);
         $notification->markAsRead();
 
+        $this->scrollToNotification($notification);
+    }
+
+    public function scrollToNotification($notification){
         $idea = Idea::find($notification->data['idea_id']);
 
         if(!$idea) {
