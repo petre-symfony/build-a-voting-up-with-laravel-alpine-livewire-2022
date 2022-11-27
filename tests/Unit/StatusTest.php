@@ -21,35 +21,15 @@ class StatusTest extends TestCase {
         $statusImplemented = Status::factory()->create(['name' => 'Implemented']);
         $statusClosed = Status::factory()->create(['name' => 'Closed']);
 
-        Idea::factory()->create(['status_id' => $statusOpen->id]);
+        Idea::factory(3)->create(['status_id' => $statusOpen->id]);
 
-        Idea::factory()->create(['status_id' => $statusConsidering->id]);
+        Idea::factory(2)->create(['status_id' => $statusConsidering->id]);
 
-        Idea::factory()->create(['status_id' => $statusInProgress->id]);
+        Idea::factory(4)->create(['status_id' => $statusInProgress->id]);
 
-        Idea::factory()->create(['status_id' => $statusImplemented->id]);
+        Idea::factory(4)->create(['status_id' => $statusImplemented->id]);
 
-        Idea::factory()->create(['status_id' => $statusClosed->id]);
-
-        Idea::factory()->create(['status_id' => $statusOpen->id]);
-
-        Idea::factory()->create(['status_id' => $statusConsidering->id]);
-
-        Idea::factory()->create(['status_id' => $statusInProgress->id]);
-
-        Idea::factory()->create(['status_id' => $statusImplemented->id]);
-
-        Idea::factory()->create(['status_id' => $statusClosed->id]);
-
-        Idea::factory()->create(['status_id' => $statusInProgress->id]);
-
-        Idea::factory()->create(['status_id' => $statusInProgress->id]);
-
-        Idea::factory()->create(['status_id' => $statusImplemented->id]);
-
-        Idea::factory()->create(['status_id' => $statusImplemented->id]);
-
-        Idea::factory()->create(['status_id' => $statusOpen->id]);
+        Idea::factory(2)->create(['status_id' => $statusClosed->id]);
 
         $this->assertEquals(15, Status::getCount()['all_statuses']);
         $this->assertEquals(3, Status::getCount()['open']);
