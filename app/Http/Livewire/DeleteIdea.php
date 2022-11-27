@@ -20,7 +20,7 @@ class DeleteIdea extends Component {
         if(auth()->guest() || auth()->user()->cannot('delete', $this->idea)){
             abort(Response::HTTP_FORBIDDEN);
         }
-        
+
         Idea::destroy($this->idea->id);
 
         session()->flash('success_message', 'Idea was deleted successfully');

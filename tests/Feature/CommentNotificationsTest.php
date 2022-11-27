@@ -181,7 +181,6 @@ class CommentNotificationsTest extends TestCase {
             ->set('comment', $this->faker->words(5, true))
             ->call('addComment');
 
-        $idea->comments()->delete();
         $idea->delete();
 
         Livewire::actingAs($user)
@@ -207,7 +206,7 @@ class CommentNotificationsTest extends TestCase {
             ->set('comment', $this->faker->words(5, true))
             ->call('addComment');
 
-        $idea->comments()->delete();
+        $idea->delete();
 
         Livewire::actingAs($user)
             ->test(CommentNotifications::class)
