@@ -23,7 +23,7 @@ class IdeasIndex extends Component {
         'status',
         'category',
         'filter',
-        'search'
+        'search' => ['except' => '']
     ];
 
     public function mount() {
