@@ -32,6 +32,9 @@
             livewire.on('statusWasUpdated', (message) => {
                 showNotification(message)
             })
+            livewire.on('statusWasUpdatedError', (message) => {
+                showNotification(message)
+            })
             livewire.on('commentWasAdded', (message) => {
                 showNotification(message)
             })
