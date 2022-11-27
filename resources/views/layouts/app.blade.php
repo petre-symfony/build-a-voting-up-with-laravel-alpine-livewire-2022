@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Laracasts voting</title>
+        <title>{{ $title ?? 'Laracasts voting' }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Open+Sans:wght@400;600;700&display=swap">
@@ -20,7 +20,7 @@
     </head>
     <body class="font-sans bg-gray-background text-gray-900 text-sm">
         <header class="flex flex-col md:flex-row items-center justify-between px-8 py-4">
-            <a href="#"><img src="{{ asset('img/logo.svg') }}" alt="logo"/></a>
+            <a href="{{ route('idea.index') }}"><img src="{{ asset('img/logo.svg') }}" alt="logo"/></a>
             <div class="flex items-center mt-2 md:mt-0">
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
