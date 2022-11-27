@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CreateIdea extends Component {
     use WithAuthRedirects;
-    
+
     public $title;
     public $category = 1;
     public $description;
