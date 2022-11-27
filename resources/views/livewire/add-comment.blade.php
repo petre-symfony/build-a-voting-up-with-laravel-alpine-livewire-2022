@@ -110,6 +110,7 @@
                 <p class="font-normal">Please login or create an account to post a comment</p>
                 <div class="flex items-center space-x-3 mt-8">
                     <a
+                        wire:click.prevent="redirectToLogin"
                         href="{{ route('login') }}"
                         class="
                             w-1/2 h11 text-sm text-center bg-blue text-white font-semibold
@@ -119,6 +120,7 @@
                         Login
                     </a>
                     <a
+                        wire:click.prevent="redirectToRegister"
                         href="{{ route('register') }}"
                         class="
                             flex items-center justify-center w-1/2 h11 text-xs bg-gray-200 font-semibold

@@ -8,4 +8,10 @@ trait WithAuthRedirects {
 
         return redirect()->route('login');
     }
+
+    public function redirectToRegister(){
+        redirect()->setIntendedUrl(url()->previous());
+
+        return redirect()->route('register');
+    }
 }
