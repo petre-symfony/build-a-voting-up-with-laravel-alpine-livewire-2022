@@ -83,6 +83,7 @@
     @else
         <div class="my-6 text-center">
             <a
+                wire:click.prevent="redirectToLogin"
                 href="{{ route('login') }}"
                 class="inline-block justify-center w-1/2 h-11
                     text-xs text-white bg-blue font-semibold rounded-xl
@@ -94,6 +95,7 @@
             </a>
 
             <a
+                wire:click.prevent="redirectToRegister"
                 href="{{ route('register') }}"
                 class="inline-block justify-center w-1/2 h-11
                     text-xs bg-gray-200 font-semibold rounded-xl

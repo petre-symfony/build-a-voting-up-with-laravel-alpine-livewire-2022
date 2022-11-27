@@ -2,12 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Livewire\Traits\WithAuthRedirects;
 use App\Models\Category;
 use Livewire\Component;
 use App\Models\Idea;
 use Symfony\Component\HttpFoundation\Response;
 
 class CreateIdea extends Component {
+    use WithAuthRedirects;
+    
     public $title;
     public $category = 1;
     public $description;

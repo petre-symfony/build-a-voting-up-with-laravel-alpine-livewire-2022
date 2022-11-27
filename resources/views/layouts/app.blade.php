@@ -81,7 +81,7 @@
                     </div>
 
                     <livewire:create-idea />
-                    
+
                 </div>
             </div>
             <div class="w-full px-2 md:px-0 md:w-175">
